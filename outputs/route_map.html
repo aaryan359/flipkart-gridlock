@@ -1,0 +1,1651 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_a6d521b0c0754924cfcf882ca613ded8 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+
+            <style>html, body {
+                width: 100%;
+                height: 100%;
+                margin: 0;
+                padding: 0;
+            }
+            </style>
+
+            <style>#map {
+                position:absolute;
+                top:0;
+                bottom:0;
+                right:0;
+                left:0;
+                }
+            </style>
+
+            <script>
+                L_NO_TOUCH = false;
+                L_DISABLE_3D = false;
+            </script>
+
+        
+</head>
+<body>
+    
+    
+            <div class="folium-map" id="map_a6d521b0c0754924cfcf882ca613ded8" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_a6d521b0c0754924cfcf882ca613ded8 = L.map(
+                "map_a6d521b0c0754924cfcf882ca613ded8",
+                {
+                    center: [12.982609042513523, 77.60945695021368],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 12,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_4627a01d30d66cde53dc835eff4db396 = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_4627a01d30d66cde53dc835eff4db396.addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var poly_line_12525f5d054ae021df7e7a58a778bbff = L.polyline(
+                [[12.977393727485206, 77.57546640118343], [12.980957103051038, 77.60844901163586], [12.971881078045234, 77.57784347089223], [12.96448770231894, 77.5760387112711], [12.97751033072407, 77.57951828564906], [12.964196714202728, 77.5813846130643], [12.9356357, 77.5612034], [12.92756138490566, 77.60933200188678]],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "red", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var marker_a95b6a840b5362a3b2012525b65c5e93 = L.marker(
+                [12.977393727485206, 77.57546640118343],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_313553729fe5ac0323a3ca29d26b950c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c58804073f4e75e396f32a6a7443696c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9a7c69b06e9322c92d35f9c2e0c75c28 = $(`<div id="html_9a7c69b06e9322c92d35f9c2e0c75c28" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 1</div>`)[0];
+                popup_c58804073f4e75e396f32a6a7443696c.setContent(html_9a7c69b06e9322c92d35f9c2e0c75c28);
+            
+        
+
+        marker_a95b6a840b5362a3b2012525b65c5e93.bindPopup(popup_c58804073f4e75e396f32a6a7443696c)
+        ;
+
+        
+    
+    
+                marker_a95b6a840b5362a3b2012525b65c5e93.setIcon(icon_313553729fe5ac0323a3ca29d26b950c);
+            
+    
+            var marker_bf9cda7c33de962af82efb42c0cf9239 = L.marker(
+                [12.980957103051038, 77.60844901163586],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_851c1f01dd10201e5eeeb172d2193fcf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fabd964ed949646c47c86d280da92a02 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_20e675b56edb78f8e7cd60d47d07f27b = $(`<div id="html_20e675b56edb78f8e7cd60d47d07f27b" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 2</div>`)[0];
+                popup_fabd964ed949646c47c86d280da92a02.setContent(html_20e675b56edb78f8e7cd60d47d07f27b);
+            
+        
+
+        marker_bf9cda7c33de962af82efb42c0cf9239.bindPopup(popup_fabd964ed949646c47c86d280da92a02)
+        ;
+
+        
+    
+    
+                marker_bf9cda7c33de962af82efb42c0cf9239.setIcon(icon_851c1f01dd10201e5eeeb172d2193fcf);
+            
+    
+            var marker_bf97677a06983dbef183800f017ac99f = L.marker(
+                [12.971881078045234, 77.57784347089223],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_f33038fd1dc91592ee611efda7ea973a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cf3e53561dfa6743fea335229a019f2e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e5bd7c5e920f5945a5c6a82b501621f6 = $(`<div id="html_e5bd7c5e920f5945a5c6a82b501621f6" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 3</div>`)[0];
+                popup_cf3e53561dfa6743fea335229a019f2e.setContent(html_e5bd7c5e920f5945a5c6a82b501621f6);
+            
+        
+
+        marker_bf97677a06983dbef183800f017ac99f.bindPopup(popup_cf3e53561dfa6743fea335229a019f2e)
+        ;
+
+        
+    
+    
+                marker_bf97677a06983dbef183800f017ac99f.setIcon(icon_f33038fd1dc91592ee611efda7ea973a);
+            
+    
+            var marker_264edc9647b97955409ac47c9aead0ac = L.marker(
+                [12.96448770231894, 77.5760387112711],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_915b2d16d19048ec20c8f47957ea7f3a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_0d49a6f538b69115b8a97130710b859f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_89be8bca35a823e291aee6ec1eece251 = $(`<div id="html_89be8bca35a823e291aee6ec1eece251" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 4</div>`)[0];
+                popup_0d49a6f538b69115b8a97130710b859f.setContent(html_89be8bca35a823e291aee6ec1eece251);
+            
+        
+
+        marker_264edc9647b97955409ac47c9aead0ac.bindPopup(popup_0d49a6f538b69115b8a97130710b859f)
+        ;
+
+        
+    
+    
+                marker_264edc9647b97955409ac47c9aead0ac.setIcon(icon_915b2d16d19048ec20c8f47957ea7f3a);
+            
+    
+            var marker_d5125a16dcbc497e60d52e321be350b6 = L.marker(
+                [12.97751033072407, 77.57951828564906],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_feec7b46d99090d332463f3edc69ce09 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_b0424919fc92864a807644f6244ad7d9 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cc9e00f540c6759db0dbf386f7bf2fbc = $(`<div id="html_cc9e00f540c6759db0dbf386f7bf2fbc" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 5</div>`)[0];
+                popup_b0424919fc92864a807644f6244ad7d9.setContent(html_cc9e00f540c6759db0dbf386f7bf2fbc);
+            
+        
+
+        marker_d5125a16dcbc497e60d52e321be350b6.bindPopup(popup_b0424919fc92864a807644f6244ad7d9)
+        ;
+
+        
+    
+    
+                marker_d5125a16dcbc497e60d52e321be350b6.setIcon(icon_feec7b46d99090d332463f3edc69ce09);
+            
+    
+            var marker_861b1373c61f608a8a2b407ee7ada226 = L.marker(
+                [12.964196714202728, 77.5813846130643],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_0f1f2300608eca975a973697d889e21f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_17078ddf654a8cfa5db4f250830e6366 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_02af9726f1d8d09b0762d44f37ca9873 = $(`<div id="html_02af9726f1d8d09b0762d44f37ca9873" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 6</div>`)[0];
+                popup_17078ddf654a8cfa5db4f250830e6366.setContent(html_02af9726f1d8d09b0762d44f37ca9873);
+            
+        
+
+        marker_861b1373c61f608a8a2b407ee7ada226.bindPopup(popup_17078ddf654a8cfa5db4f250830e6366)
+        ;
+
+        
+    
+    
+                marker_861b1373c61f608a8a2b407ee7ada226.setIcon(icon_0f1f2300608eca975a973697d889e21f);
+            
+    
+            var marker_898a8dfe032aec149dbb088298f808e6 = L.marker(
+                [12.9356357, 77.5612034],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_0ddf943c67c7af3bf260bed58f01c496 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d542c6ad96124a314453e650aab970e5 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d752e922bd957f8699102e41bc88fef8 = $(`<div id="html_d752e922bd957f8699102e41bc88fef8" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 7</div>`)[0];
+                popup_d542c6ad96124a314453e650aab970e5.setContent(html_d752e922bd957f8699102e41bc88fef8);
+            
+        
+
+        marker_898a8dfe032aec149dbb088298f808e6.bindPopup(popup_d542c6ad96124a314453e650aab970e5)
+        ;
+
+        
+    
+    
+                marker_898a8dfe032aec149dbb088298f808e6.setIcon(icon_0ddf943c67c7af3bf260bed58f01c496);
+            
+    
+            var marker_e8e7a396508537c8b255c01d508fb0e4 = L.marker(
+                [12.92756138490566, 77.60933200188678],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_b07116e6d928bd4bd06851da725feb76 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "red",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_5fe74f128df030ce916eb75db27f2405 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cf52bf890579f81114b3cb1195e601ac = $(`<div id="html_cf52bf890579f81114b3cb1195e601ac" style="width: 100.0%; height: 100.0%;">Patrol 1 Stop 8</div>`)[0];
+                popup_5fe74f128df030ce916eb75db27f2405.setContent(html_cf52bf890579f81114b3cb1195e601ac);
+            
+        
+
+        marker_e8e7a396508537c8b255c01d508fb0e4.bindPopup(popup_5fe74f128df030ce916eb75db27f2405)
+        ;
+
+        
+    
+    
+                marker_e8e7a396508537c8b255c01d508fb0e4.setIcon(icon_b07116e6d928bd4bd06851da725feb76);
+            
+    
+            var poly_line_8e9ed4c5c484db79d5cf1b14d95f09bf = L.polyline(
+                [[13.0386477, 77.5209323], [13.0336973, 77.5126741], [13.027934408333333, 77.51908030833333], [12.9879714, 77.4944637], [12.9227144, 77.4946422], [12.9174067, 77.513495], [12.907741780108427, 77.5329100484292], [12.910105238180645, 77.55049955649609]],
+                {"bubblingMouseEvents": true, "color": "blue", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "blue", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var marker_767b97cfe79f4f3af95a052d0cba5598 = L.marker(
+                [13.0386477, 77.5209323],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_751ced09150e51327ad24358f7b84509 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_26decaa9f18d4047e0b5246b1a171329 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_27692c8cdcd6b1ecdc7ced356d8153b8 = $(`<div id="html_27692c8cdcd6b1ecdc7ced356d8153b8" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 1</div>`)[0];
+                popup_26decaa9f18d4047e0b5246b1a171329.setContent(html_27692c8cdcd6b1ecdc7ced356d8153b8);
+            
+        
+
+        marker_767b97cfe79f4f3af95a052d0cba5598.bindPopup(popup_26decaa9f18d4047e0b5246b1a171329)
+        ;
+
+        
+    
+    
+                marker_767b97cfe79f4f3af95a052d0cba5598.setIcon(icon_751ced09150e51327ad24358f7b84509);
+            
+    
+            var marker_0de716e61b36a8ed0bb7a45d41aab5d7 = L.marker(
+                [13.0336973, 77.5126741],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_efc3a1ea5b607f8b2f4c3a1abe2c7748 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_54cf8e5e43c7e12ae57906894c5d4018 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7aea5fb522e1fd34fe9ba7bab27b1de8 = $(`<div id="html_7aea5fb522e1fd34fe9ba7bab27b1de8" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 2</div>`)[0];
+                popup_54cf8e5e43c7e12ae57906894c5d4018.setContent(html_7aea5fb522e1fd34fe9ba7bab27b1de8);
+            
+        
+
+        marker_0de716e61b36a8ed0bb7a45d41aab5d7.bindPopup(popup_54cf8e5e43c7e12ae57906894c5d4018)
+        ;
+
+        
+    
+    
+                marker_0de716e61b36a8ed0bb7a45d41aab5d7.setIcon(icon_efc3a1ea5b607f8b2f4c3a1abe2c7748);
+            
+    
+            var marker_992d00e2a5779d93085fd1d84d96fa67 = L.marker(
+                [13.027934408333333, 77.51908030833333],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_110c05092de9244887baf7f20d7a44d0 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_df44c3d1fc14bdfd1bc5c7bcdb41f2a8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74dc4df716a6b4447c7be91d561f41c3 = $(`<div id="html_74dc4df716a6b4447c7be91d561f41c3" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 3</div>`)[0];
+                popup_df44c3d1fc14bdfd1bc5c7bcdb41f2a8.setContent(html_74dc4df716a6b4447c7be91d561f41c3);
+            
+        
+
+        marker_992d00e2a5779d93085fd1d84d96fa67.bindPopup(popup_df44c3d1fc14bdfd1bc5c7bcdb41f2a8)
+        ;
+
+        
+    
+    
+                marker_992d00e2a5779d93085fd1d84d96fa67.setIcon(icon_110c05092de9244887baf7f20d7a44d0);
+            
+    
+            var marker_d733a8eb59fa85fc9b7ba52809f62350 = L.marker(
+                [12.9879714, 77.4944637],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_abd15a1b83c1ce19f97a7e94f7848ecc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_28d9849d486bbe48cfb335e2ded7d480 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60ea5e857b6e0c85d72cc855a87c083a = $(`<div id="html_60ea5e857b6e0c85d72cc855a87c083a" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 4</div>`)[0];
+                popup_28d9849d486bbe48cfb335e2ded7d480.setContent(html_60ea5e857b6e0c85d72cc855a87c083a);
+            
+        
+
+        marker_d733a8eb59fa85fc9b7ba52809f62350.bindPopup(popup_28d9849d486bbe48cfb335e2ded7d480)
+        ;
+
+        
+    
+    
+                marker_d733a8eb59fa85fc9b7ba52809f62350.setIcon(icon_abd15a1b83c1ce19f97a7e94f7848ecc);
+            
+    
+            var marker_9b28cd959ba680e5921f91fecc4b21d3 = L.marker(
+                [12.9227144, 77.4946422],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_8d38728ea598aca61a5729ed467e45c9 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_fc4af3fb41aeb4a269c9486134bad223 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4766e131b3ff3d80500c3352181c807b = $(`<div id="html_4766e131b3ff3d80500c3352181c807b" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 5</div>`)[0];
+                popup_fc4af3fb41aeb4a269c9486134bad223.setContent(html_4766e131b3ff3d80500c3352181c807b);
+            
+        
+
+        marker_9b28cd959ba680e5921f91fecc4b21d3.bindPopup(popup_fc4af3fb41aeb4a269c9486134bad223)
+        ;
+
+        
+    
+    
+                marker_9b28cd959ba680e5921f91fecc4b21d3.setIcon(icon_8d38728ea598aca61a5729ed467e45c9);
+            
+    
+            var marker_81ed1ea929ed705391d686dc360b1924 = L.marker(
+                [12.9174067, 77.513495],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_289792fe11bd19794f970625d45bbf95 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_9626d9d595742a7aefed21faf2b8e795 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b4eae0529315f42ae39df6fb27f0e9df = $(`<div id="html_b4eae0529315f42ae39df6fb27f0e9df" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 6</div>`)[0];
+                popup_9626d9d595742a7aefed21faf2b8e795.setContent(html_b4eae0529315f42ae39df6fb27f0e9df);
+            
+        
+
+        marker_81ed1ea929ed705391d686dc360b1924.bindPopup(popup_9626d9d595742a7aefed21faf2b8e795)
+        ;
+
+        
+    
+    
+                marker_81ed1ea929ed705391d686dc360b1924.setIcon(icon_289792fe11bd19794f970625d45bbf95);
+            
+    
+            var marker_863d2d5d93f40c1d674b1a65320ec21b = L.marker(
+                [12.907741780108427, 77.5329100484292],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_1f5f3aea0fcb2d1014902085ac9fc0bf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_bc4cf5b4e5581051b12959fd53310639 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_28b3969236dded4daf39ff8bc7e10251 = $(`<div id="html_28b3969236dded4daf39ff8bc7e10251" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 7</div>`)[0];
+                popup_bc4cf5b4e5581051b12959fd53310639.setContent(html_28b3969236dded4daf39ff8bc7e10251);
+            
+        
+
+        marker_863d2d5d93f40c1d674b1a65320ec21b.bindPopup(popup_bc4cf5b4e5581051b12959fd53310639)
+        ;
+
+        
+    
+    
+                marker_863d2d5d93f40c1d674b1a65320ec21b.setIcon(icon_1f5f3aea0fcb2d1014902085ac9fc0bf);
+            
+    
+            var marker_af15ce071671ee431bcfa5e5f71f6f35 = L.marker(
+                [12.910105238180645, 77.55049955649609],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_fbcac97eda24df4ce2e326e3f7fbce14 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "blue",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_53879cbd25bc92224ef9a833795b17b8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_13c355c922b5d6a7cfd046f59a457f32 = $(`<div id="html_13c355c922b5d6a7cfd046f59a457f32" style="width: 100.0%; height: 100.0%;">Patrol 2 Stop 8</div>`)[0];
+                popup_53879cbd25bc92224ef9a833795b17b8.setContent(html_13c355c922b5d6a7cfd046f59a457f32);
+            
+        
+
+        marker_af15ce071671ee431bcfa5e5f71f6f35.bindPopup(popup_53879cbd25bc92224ef9a833795b17b8)
+        ;
+
+        
+    
+    
+                marker_af15ce071671ee431bcfa5e5f71f6f35.setIcon(icon_fbcac97eda24df4ce2e326e3f7fbce14);
+            
+    
+            var poly_line_0bdb07c31440ee57a16998b0fda9b9f7 = L.polyline(
+                [[12.999943583073557, 77.55067052462434], [13.009300909257004, 77.55483567771012], [13.023640433333334, 77.5488826], [13.0472798625, 77.545553621875], [13.042076, 77.5277872], [13.025619577777777, 77.52060882222223], [13.007838292982456, 77.52666287719299], [12.995020475, 77.52237855]],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "green", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var marker_8f23471114251c53f1b69c2925fbdad1 = L.marker(
+                [12.999943583073557, 77.55067052462434],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_823b07513d36ecc93d7cee6b8804f98c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7d5384d3ed22503f6b9a0cc3d5ca7e4c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_445d0beb998506917d57e7c38f265375 = $(`<div id="html_445d0beb998506917d57e7c38f265375" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 1</div>`)[0];
+                popup_7d5384d3ed22503f6b9a0cc3d5ca7e4c.setContent(html_445d0beb998506917d57e7c38f265375);
+            
+        
+
+        marker_8f23471114251c53f1b69c2925fbdad1.bindPopup(popup_7d5384d3ed22503f6b9a0cc3d5ca7e4c)
+        ;
+
+        
+    
+    
+                marker_8f23471114251c53f1b69c2925fbdad1.setIcon(icon_823b07513d36ecc93d7cee6b8804f98c);
+            
+    
+            var marker_5f2ec832fc4c357d09d77bb289da8366 = L.marker(
+                [13.009300909257004, 77.55483567771012],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_0eec9c25444383e41105245a57fd98e7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_885c05c1140b2ac19b93bff00c22aa4e = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_74520dc80c4372dc61250de4de27d7ec = $(`<div id="html_74520dc80c4372dc61250de4de27d7ec" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 2</div>`)[0];
+                popup_885c05c1140b2ac19b93bff00c22aa4e.setContent(html_74520dc80c4372dc61250de4de27d7ec);
+            
+        
+
+        marker_5f2ec832fc4c357d09d77bb289da8366.bindPopup(popup_885c05c1140b2ac19b93bff00c22aa4e)
+        ;
+
+        
+    
+    
+                marker_5f2ec832fc4c357d09d77bb289da8366.setIcon(icon_0eec9c25444383e41105245a57fd98e7);
+            
+    
+            var marker_3b790826d7f3aee5b6280d433bdcc10c = L.marker(
+                [13.023640433333334, 77.5488826],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_0c3d0c91f6f3c47109ad20aa90d6a451 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_e099620c598a8879cbb2324e234f44a3 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_3d6c7dc6067b8f9829d0f2efc30015c9 = $(`<div id="html_3d6c7dc6067b8f9829d0f2efc30015c9" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 3</div>`)[0];
+                popup_e099620c598a8879cbb2324e234f44a3.setContent(html_3d6c7dc6067b8f9829d0f2efc30015c9);
+            
+        
+
+        marker_3b790826d7f3aee5b6280d433bdcc10c.bindPopup(popup_e099620c598a8879cbb2324e234f44a3)
+        ;
+
+        
+    
+    
+                marker_3b790826d7f3aee5b6280d433bdcc10c.setIcon(icon_0c3d0c91f6f3c47109ad20aa90d6a451);
+            
+    
+            var marker_0db6f9253b07cd1435176d7892b5e2a5 = L.marker(
+                [13.0472798625, 77.545553621875],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_a47ecbdb5ada34c99ea21f522533a1a7 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6a557a98802cab6d0edb6fdaec657dbb = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_bef2bd9324fbfff15adac1e1a5a72ce2 = $(`<div id="html_bef2bd9324fbfff15adac1e1a5a72ce2" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 4</div>`)[0];
+                popup_6a557a98802cab6d0edb6fdaec657dbb.setContent(html_bef2bd9324fbfff15adac1e1a5a72ce2);
+            
+        
+
+        marker_0db6f9253b07cd1435176d7892b5e2a5.bindPopup(popup_6a557a98802cab6d0edb6fdaec657dbb)
+        ;
+
+        
+    
+    
+                marker_0db6f9253b07cd1435176d7892b5e2a5.setIcon(icon_a47ecbdb5ada34c99ea21f522533a1a7);
+            
+    
+            var marker_efd10d673d51f6ca8e9daef1e4288afe = L.marker(
+                [13.042076, 77.5277872],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_4a4fa998aa4aa9f9c40c39078a8f1481 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6063faca7c53be07f88af6e9386e2dce = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_70dde8e1d00d1f3a3f44a028d1e4f5cf = $(`<div id="html_70dde8e1d00d1f3a3f44a028d1e4f5cf" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 5</div>`)[0];
+                popup_6063faca7c53be07f88af6e9386e2dce.setContent(html_70dde8e1d00d1f3a3f44a028d1e4f5cf);
+            
+        
+
+        marker_efd10d673d51f6ca8e9daef1e4288afe.bindPopup(popup_6063faca7c53be07f88af6e9386e2dce)
+        ;
+
+        
+    
+    
+                marker_efd10d673d51f6ca8e9daef1e4288afe.setIcon(icon_4a4fa998aa4aa9f9c40c39078a8f1481);
+            
+    
+            var marker_4c03f5592395b8318f5303bd7c0d001c = L.marker(
+                [13.025619577777777, 77.52060882222223],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_4ef653d36ae4247635787882c2582f30 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_420cff4ee8c732cd116b94bec354787b = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_aff2143436af6f3db2e2506b841cb0d7 = $(`<div id="html_aff2143436af6f3db2e2506b841cb0d7" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 6</div>`)[0];
+                popup_420cff4ee8c732cd116b94bec354787b.setContent(html_aff2143436af6f3db2e2506b841cb0d7);
+            
+        
+
+        marker_4c03f5592395b8318f5303bd7c0d001c.bindPopup(popup_420cff4ee8c732cd116b94bec354787b)
+        ;
+
+        
+    
+    
+                marker_4c03f5592395b8318f5303bd7c0d001c.setIcon(icon_4ef653d36ae4247635787882c2582f30);
+            
+    
+            var marker_2a2fb1badf4879661eeee38d041cc662 = L.marker(
+                [13.007838292982456, 77.52666287719299],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_26718f71247e2fd04442ea95cf719baf = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_da49e669995954c73f4fafaf5da46f88 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_e8752f7bf792f5c36b440848afcd7484 = $(`<div id="html_e8752f7bf792f5c36b440848afcd7484" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 7</div>`)[0];
+                popup_da49e669995954c73f4fafaf5da46f88.setContent(html_e8752f7bf792f5c36b440848afcd7484);
+            
+        
+
+        marker_2a2fb1badf4879661eeee38d041cc662.bindPopup(popup_da49e669995954c73f4fafaf5da46f88)
+        ;
+
+        
+    
+    
+                marker_2a2fb1badf4879661eeee38d041cc662.setIcon(icon_26718f71247e2fd04442ea95cf719baf);
+            
+    
+            var marker_78e33dad5d5dc2d1ab35738d3acd560a = L.marker(
+                [12.995020475, 77.52237855],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_38b72a9447f3be95c685378e396ac05a = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "green",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_d6df82b5249961c8a8ba7f696a490d51 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_60b2cecd9f4d2e1fb4a5eb9a46338216 = $(`<div id="html_60b2cecd9f4d2e1fb4a5eb9a46338216" style="width: 100.0%; height: 100.0%;">Patrol 3 Stop 8</div>`)[0];
+                popup_d6df82b5249961c8a8ba7f696a490d51.setContent(html_60b2cecd9f4d2e1fb4a5eb9a46338216);
+            
+        
+
+        marker_78e33dad5d5dc2d1ab35738d3acd560a.bindPopup(popup_d6df82b5249961c8a8ba7f696a490d51)
+        ;
+
+        
+    
+    
+                marker_78e33dad5d5dc2d1ab35738d3acd560a.setIcon(icon_38b72a9447f3be95c685378e396ac05a);
+            
+    
+            var poly_line_577a889dd21f5dd515acb3c4aa3d5ffb = L.polyline(
+                [[12.984299133468838, 77.60369147903043], [12.983012111847135, 77.61065362394905], [12.983426271428572, 77.6398844357143], [12.99203019117647, 77.6525106], [12.995567977922686, 77.66705703550352], [13.0154005, 77.7094379], [13.00346927647059, 77.72351338823529], [12.985477342105263, 77.74585154210526]],
+                {"bubblingMouseEvents": true, "color": "purple", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "purple", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var marker_94f1e2db138391a5ee60efe3110dd715 = L.marker(
+                [12.984299133468838, 77.60369147903043],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_09b86e7f17252527af9190573f5675f3 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_3867478eb8ce9315a54ebc85f1b988ea = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_0e98062635b23f5f1e4aa0ee3ac979bf = $(`<div id="html_0e98062635b23f5f1e4aa0ee3ac979bf" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 1</div>`)[0];
+                popup_3867478eb8ce9315a54ebc85f1b988ea.setContent(html_0e98062635b23f5f1e4aa0ee3ac979bf);
+            
+        
+
+        marker_94f1e2db138391a5ee60efe3110dd715.bindPopup(popup_3867478eb8ce9315a54ebc85f1b988ea)
+        ;
+
+        
+    
+    
+                marker_94f1e2db138391a5ee60efe3110dd715.setIcon(icon_09b86e7f17252527af9190573f5675f3);
+            
+    
+            var marker_a86b163d0f0da090f115d040b61c8784 = L.marker(
+                [12.983012111847135, 77.61065362394905],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_75b1880155f529881142bbbbcee2d21f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_64204ea126c783266535825e6fbc16a8 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_c7702ea3da214ca4c89e0193355ac716 = $(`<div id="html_c7702ea3da214ca4c89e0193355ac716" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 2</div>`)[0];
+                popup_64204ea126c783266535825e6fbc16a8.setContent(html_c7702ea3da214ca4c89e0193355ac716);
+            
+        
+
+        marker_a86b163d0f0da090f115d040b61c8784.bindPopup(popup_64204ea126c783266535825e6fbc16a8)
+        ;
+
+        
+    
+    
+                marker_a86b163d0f0da090f115d040b61c8784.setIcon(icon_75b1880155f529881142bbbbcee2d21f);
+            
+    
+            var marker_294c7355f68446b0f5d10d1bac9aedf4 = L.marker(
+                [12.983426271428572, 77.6398844357143],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_2d3cb2f26dfd9cf117fe3ee7f2d68021 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c7ad8d1877fb03251d6668f6378b825c = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_44abfa4015390b82345ee9865c4443e2 = $(`<div id="html_44abfa4015390b82345ee9865c4443e2" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 3</div>`)[0];
+                popup_c7ad8d1877fb03251d6668f6378b825c.setContent(html_44abfa4015390b82345ee9865c4443e2);
+            
+        
+
+        marker_294c7355f68446b0f5d10d1bac9aedf4.bindPopup(popup_c7ad8d1877fb03251d6668f6378b825c)
+        ;
+
+        
+    
+    
+                marker_294c7355f68446b0f5d10d1bac9aedf4.setIcon(icon_2d3cb2f26dfd9cf117fe3ee7f2d68021);
+            
+    
+            var marker_2f812b1ca4d6e7123d1decfa098a6220 = L.marker(
+                [12.99203019117647, 77.6525106],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_a7887bf4220d1252e00bbb4cf58bc6ea = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_87e1bdd5b2d5957bdc14d0483d8193a0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_d2e532c189c5774efbcdd9b23ec2f42d = $(`<div id="html_d2e532c189c5774efbcdd9b23ec2f42d" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 4</div>`)[0];
+                popup_87e1bdd5b2d5957bdc14d0483d8193a0.setContent(html_d2e532c189c5774efbcdd9b23ec2f42d);
+            
+        
+
+        marker_2f812b1ca4d6e7123d1decfa098a6220.bindPopup(popup_87e1bdd5b2d5957bdc14d0483d8193a0)
+        ;
+
+        
+    
+    
+                marker_2f812b1ca4d6e7123d1decfa098a6220.setIcon(icon_a7887bf4220d1252e00bbb4cf58bc6ea);
+            
+    
+            var marker_41fb9e93fae7dfbb7985d8af2770de88 = L.marker(
+                [12.995567977922686, 77.66705703550352],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_a571c6517de9098186aed875d6be4846 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_7dcdf2cdb0c655abe2c9954be698e461 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_147b89ff02e996463ddd79698420ff69 = $(`<div id="html_147b89ff02e996463ddd79698420ff69" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 5</div>`)[0];
+                popup_7dcdf2cdb0c655abe2c9954be698e461.setContent(html_147b89ff02e996463ddd79698420ff69);
+            
+        
+
+        marker_41fb9e93fae7dfbb7985d8af2770de88.bindPopup(popup_7dcdf2cdb0c655abe2c9954be698e461)
+        ;
+
+        
+    
+    
+                marker_41fb9e93fae7dfbb7985d8af2770de88.setIcon(icon_a571c6517de9098186aed875d6be4846);
+            
+    
+            var marker_b7990dff5c73d91843594f9fcce429f0 = L.marker(
+                [13.0154005, 77.7094379],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_80ab6db05e5a35f029fe7a07c007a335 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_333a0802b9d158e0ffd2a99d4bc6c2ee = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_54dd1d0980ea7e89f2d5284be3206980 = $(`<div id="html_54dd1d0980ea7e89f2d5284be3206980" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 6</div>`)[0];
+                popup_333a0802b9d158e0ffd2a99d4bc6c2ee.setContent(html_54dd1d0980ea7e89f2d5284be3206980);
+            
+        
+
+        marker_b7990dff5c73d91843594f9fcce429f0.bindPopup(popup_333a0802b9d158e0ffd2a99d4bc6c2ee)
+        ;
+
+        
+    
+    
+                marker_b7990dff5c73d91843594f9fcce429f0.setIcon(icon_80ab6db05e5a35f029fe7a07c007a335);
+            
+    
+            var marker_d4dda0bb8d18aef78cd24fae042a3046 = L.marker(
+                [13.00346927647059, 77.72351338823529],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_9434c11040b1554e77a9381bc9ebcafa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_ede515727cb9bc1c17f1bb49d0820d42 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_b0065fd9c17c20a16acc454ab590d06a = $(`<div id="html_b0065fd9c17c20a16acc454ab590d06a" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 7</div>`)[0];
+                popup_ede515727cb9bc1c17f1bb49d0820d42.setContent(html_b0065fd9c17c20a16acc454ab590d06a);
+            
+        
+
+        marker_d4dda0bb8d18aef78cd24fae042a3046.bindPopup(popup_ede515727cb9bc1c17f1bb49d0820d42)
+        ;
+
+        
+    
+    
+                marker_d4dda0bb8d18aef78cd24fae042a3046.setIcon(icon_9434c11040b1554e77a9381bc9ebcafa);
+            
+    
+            var marker_04c331df2fd1744a40cab566269fbb1c = L.marker(
+                [12.985477342105263, 77.74585154210526],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_a7e132f1f03dfba412ff3164d72c945f = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "purple",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_de516262c47a93b1b728b1d479614639 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a8bec5b86265c36a475e929c80b3dfad = $(`<div id="html_a8bec5b86265c36a475e929c80b3dfad" style="width: 100.0%; height: 100.0%;">Patrol 4 Stop 8</div>`)[0];
+                popup_de516262c47a93b1b728b1d479614639.setContent(html_a8bec5b86265c36a475e929c80b3dfad);
+            
+        
+
+        marker_04c331df2fd1744a40cab566269fbb1c.bindPopup(popup_de516262c47a93b1b728b1d479614639)
+        ;
+
+        
+    
+    
+                marker_04c331df2fd1744a40cab566269fbb1c.setIcon(icon_a7e132f1f03dfba412ff3164d72c945f);
+            
+    
+            var poly_line_92e36d383004f63178c06e794fb355a1 = L.polyline(
+                [[12.9582126125, 77.55422775], [12.958867470000001, 77.56011798], [12.973849922524753, 77.54537204740099], [12.969512, 77.50194819999999], [12.970018000000001, 77.4952042], [12.977636476923077, 77.51336846923077], [12.950054710344828, 77.52248170689656], [12.919311352444097, 77.54207782972229]],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": false, "fillColor": "orange", "fillOpacity": 0.2, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "noClip": false, "opacity": 0.8, "smoothFactor": 1.0, "stroke": true, "weight": 3}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var marker_20ae53e26aa3570c19d049d6ca54a674 = L.marker(
+                [12.9582126125, 77.55422775],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_a7cdaad0b6126de84bd62107aebdc928 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f1ce33a2553036f6337483e5a4070ba6 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_5fbad2f1948bd80a029e66e8bfa94b90 = $(`<div id="html_5fbad2f1948bd80a029e66e8bfa94b90" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 1</div>`)[0];
+                popup_f1ce33a2553036f6337483e5a4070ba6.setContent(html_5fbad2f1948bd80a029e66e8bfa94b90);
+            
+        
+
+        marker_20ae53e26aa3570c19d049d6ca54a674.bindPopup(popup_f1ce33a2553036f6337483e5a4070ba6)
+        ;
+
+        
+    
+    
+                marker_20ae53e26aa3570c19d049d6ca54a674.setIcon(icon_a7cdaad0b6126de84bd62107aebdc928);
+            
+    
+            var marker_bed2757e2867fdf6ab23ebd01f524658 = L.marker(
+                [12.958867470000001, 77.56011798],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_1066708fd22515fc4b1f90a56defa8ff = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_a741c657770aebed85849b4ada409486 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_9da28e102337878c3f1b8d077778abae = $(`<div id="html_9da28e102337878c3f1b8d077778abae" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 2</div>`)[0];
+                popup_a741c657770aebed85849b4ada409486.setContent(html_9da28e102337878c3f1b8d077778abae);
+            
+        
+
+        marker_bed2757e2867fdf6ab23ebd01f524658.bindPopup(popup_a741c657770aebed85849b4ada409486)
+        ;
+
+        
+    
+    
+                marker_bed2757e2867fdf6ab23ebd01f524658.setIcon(icon_1066708fd22515fc4b1f90a56defa8ff);
+            
+    
+            var marker_8392bdfca9e64f3e7095f409886dc5f8 = L.marker(
+                [12.973849922524753, 77.54537204740099],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_138fa1969d036575cb1aad8bb97855aa = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_265b4618c72e74304583733bf168f08f = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_26c43d063e6f3cc90552171d8229a753 = $(`<div id="html_26c43d063e6f3cc90552171d8229a753" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 3</div>`)[0];
+                popup_265b4618c72e74304583733bf168f08f.setContent(html_26c43d063e6f3cc90552171d8229a753);
+            
+        
+
+        marker_8392bdfca9e64f3e7095f409886dc5f8.bindPopup(popup_265b4618c72e74304583733bf168f08f)
+        ;
+
+        
+    
+    
+                marker_8392bdfca9e64f3e7095f409886dc5f8.setIcon(icon_138fa1969d036575cb1aad8bb97855aa);
+            
+    
+            var marker_7aa8ff16119307b729cf25e2a76b2563 = L.marker(
+                [12.969512, 77.50194819999999],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_6dd3cc25d7f53e0cb2a85a639e208349 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_c0a7804d8bc17ec174c74873158b4d76 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_cb41dcf4b00732fce809c3087a373e69 = $(`<div id="html_cb41dcf4b00732fce809c3087a373e69" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 4</div>`)[0];
+                popup_c0a7804d8bc17ec174c74873158b4d76.setContent(html_cb41dcf4b00732fce809c3087a373e69);
+            
+        
+
+        marker_7aa8ff16119307b729cf25e2a76b2563.bindPopup(popup_c0a7804d8bc17ec174c74873158b4d76)
+        ;
+
+        
+    
+    
+                marker_7aa8ff16119307b729cf25e2a76b2563.setIcon(icon_6dd3cc25d7f53e0cb2a85a639e208349);
+            
+    
+            var marker_47534c574964b855b622d719c8094d6a = L.marker(
+                [12.970018000000001, 77.4952042],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_49c8f24bbddd0e41c375ee5e8cfe8a4c = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_f05828d3e4e277a68b9ba98616705ea0 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_7340fe437269522137a9aaaa6a6ba087 = $(`<div id="html_7340fe437269522137a9aaaa6a6ba087" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 5</div>`)[0];
+                popup_f05828d3e4e277a68b9ba98616705ea0.setContent(html_7340fe437269522137a9aaaa6a6ba087);
+            
+        
+
+        marker_47534c574964b855b622d719c8094d6a.bindPopup(popup_f05828d3e4e277a68b9ba98616705ea0)
+        ;
+
+        
+    
+    
+                marker_47534c574964b855b622d719c8094d6a.setIcon(icon_49c8f24bbddd0e41c375ee5e8cfe8a4c);
+            
+    
+            var marker_7022b901961dc537998f8b7a0493c273 = L.marker(
+                [12.977636476923077, 77.51336846923077],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_9cfe81e626619d91fe01b0bf6ba9eb66 = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_2f8405849e8849846cb6d95aa3258467 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_4c2a738c841b28b83a0a0d59d67b6309 = $(`<div id="html_4c2a738c841b28b83a0a0d59d67b6309" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 6</div>`)[0];
+                popup_2f8405849e8849846cb6d95aa3258467.setContent(html_4c2a738c841b28b83a0a0d59d67b6309);
+            
+        
+
+        marker_7022b901961dc537998f8b7a0493c273.bindPopup(popup_2f8405849e8849846cb6d95aa3258467)
+        ;
+
+        
+    
+    
+                marker_7022b901961dc537998f8b7a0493c273.setIcon(icon_9cfe81e626619d91fe01b0bf6ba9eb66);
+            
+    
+            var marker_e40be6bf5f57240f641affe113f02b40 = L.marker(
+                [12.950054710344828, 77.52248170689656],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_c5aaaf4619d1340f958357ffd8a479cd = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_6b20fa812bdad1f1b7eabe1ab0cb0a0a = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_a3282539b7a33abdbfe34a506c246452 = $(`<div id="html_a3282539b7a33abdbfe34a506c246452" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 7</div>`)[0];
+                popup_6b20fa812bdad1f1b7eabe1ab0cb0a0a.setContent(html_a3282539b7a33abdbfe34a506c246452);
+            
+        
+
+        marker_e40be6bf5f57240f641affe113f02b40.bindPopup(popup_6b20fa812bdad1f1b7eabe1ab0cb0a0a)
+        ;
+
+        
+    
+    
+                marker_e40be6bf5f57240f641affe113f02b40.setIcon(icon_c5aaaf4619d1340f958357ffd8a479cd);
+            
+    
+            var marker_7c205a490338ca960770510788e14300 = L.marker(
+                [12.919311352444097, 77.54207782972229],
+                {
+}
+            ).addTo(map_a6d521b0c0754924cfcf882ca613ded8);
+        
+    
+            var icon_422be265767ccb7fa2c20d9e4bd30bbc = L.AwesomeMarkers.icon(
+                {
+  "markerColor": "orange",
+  "iconColor": "white",
+  "icon": "info-sign",
+  "prefix": "glyphicon",
+  "extraClasses": "fa-rotate-0",
+}
+            );
+        
+    
+        var popup_cc722f888e4f3e80c98a91b787311b14 = L.popup({
+  "maxWidth": "100%",
+});
+
+        
+            
+                var html_feec6be224d2b79bd45e81d72086ab87 = $(`<div id="html_feec6be224d2b79bd45e81d72086ab87" style="width: 100.0%; height: 100.0%;">Patrol 5 Stop 8</div>`)[0];
+                popup_cc722f888e4f3e80c98a91b787311b14.setContent(html_feec6be224d2b79bd45e81d72086ab87);
+            
+        
+
+        marker_7c205a490338ca960770510788e14300.bindPopup(popup_cc722f888e4f3e80c98a91b787311b14)
+        ;
+
+        
+    
+    
+                marker_7c205a490338ca960770510788e14300.setIcon(icon_422be265767ccb7fa2c20d9e4bd30bbc);
+            
+</script>
+</html>

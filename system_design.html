@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GridLock — System Architecture</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #f8f9fc;
+    color: #1a1023;
+    padding: 40px;
+}
+
+.page {
+    max-width: 1200px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+/* Header */
+.header {
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    padding: 40px 48px;
+    color: white;
+}
+.header h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -1px;
+    margin-bottom: 6px;
+}
+.header p {
+    font-size: 15px;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* Content */
+.content {
+    padding: 40px 48px;
+}
+
+/* Section labels */
+.section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6C5CE7;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 16px;
+}
+
+/* ── Architecture Flow ── */
+.flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    margin-bottom: 48px;
+}
+
+/* Layer row */
+.layer {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+}
+
+/* Arrow between layers */
+.arrow-down {
+    display: flex;
+    justify-content: center;
+    padding: 8px 0;
+}
+.arrow-down svg {
+    color: #c4b5fd;
+}
+
+/* Layer label (left side) */
+.layer-label {
+    width: 140px;
+    min-width: 140px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 16px 0;
+}
+.layer-label .num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #6C5CE7;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2px;
+}
+.layer-label .name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1023;
+}
+
+/* Layer boxes */
+.layer-boxes {
+    flex: 1;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.box {
+    background: #f8f7fc;
+    border: 1px solid #e8e6ee;
+    border-radius: 10px;
+    padding: 16px 20px;
+    flex: 1;
+    min-width: 160px;
+    transition: all 0.2s;
+}
+.box:hover {
+    border-color: #6C5CE7;
+    box-shadow: 0 4px 16px rgba(108,92,231,0.1);
+}
+.box .icon {
+    font-size: 22px;
+    margin-bottom: 8px;
+}
+.box h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1023;
+    margin-bottom: 4px;
+}
+.box p {
+    font-size: 12px;
+    color: #6b6375;
+    line-height: 1.5;
+}
+.box .tag {
+    display: inline-block;
+    background: rgba(108,92,231,0.1);
+    color: #6C5CE7;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+.box .tag.green { background: rgba(16,185,129,0.1); color: #059669; }
+.box .tag.amber { background: rgba(245,158,11,0.1); color: #D97706; }
+.box .tag.red { background: rgba(239,68,68,0.1); color: #DC2626; }
+.box .tag.blue { background: rgba(59,130,246,0.1); color: #2563EB; }
+
+/* Connector line between layers */
+.connector {
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 70px;
+}
+.connector-line {
+    flex: 1;
+    height: 2px;
+    background: linear-gradient(90deg, #c4b5fd, #e8e6ee);
+    position: relative;
+}
+.connector-line::after {
+    content: '';
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    border: 5px solid transparent;
+    border-left-color: #c4b5fd;
+}
+
+/* ── Data Flow Section ── */
+.data-flow {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 0;
+    align-items: center;
+    margin-bottom: 48px;
+    background: #f8f7fc;
+    border: 1px solid #e8e6ee;
+    border-radius: 12px;
+    padding: 24px;
+}
+.data-flow .df-box {
+    text-align: center;
+    padding: 12px;
+}
+.data-flow .df-box h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1023;
+    margin-bottom: 4px;
+}
+.data-flow .df-box p {
+    font-size: 11px;
+    color: #6b6375;
+}
+.data-flow .df-arrow {
+    font-size: 24px;
+    color: #c4b5fd;
+}
+
+/* ── Output Grid ── */
+.output-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 48px;
+}
+.output-card {
+    background: #f8f7fc;
+    border: 1px solid #e8e6ee;
+    border-radius: 10px;
+    padding: 16px;
+    text-align: center;
+    border-top: 3px solid #6C5CE7;
+}
+.output-card h4 {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1023;
+    margin-bottom: 4px;
+}
+.output-card p {
+    font-size: 11px;
+    color: #6b6375;
+    line-height: 1.4;
+}
+.output-card .file {
+    display: inline-block;
+    background: rgba(108,92,231,0.08);
+    color: #6C5CE7;
+    font-size: 10px;
+    font-weight: 600;
+    font-family: monospace;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-top: 6px;
+}
+
+/* ── Impact Section ── */
+.impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 32px;
+}
+.impact-card {
+    background: linear-gradient(135deg, #4F46E5, #7C3AED);
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+.impact-card .val {
+    font-size: 28px;
+    font-weight: 800;
+    line-height: 1;
+    margin-bottom: 4px;
+}
+.impact-card .lbl {
+    font-size: 11px;
+    opacity: 0.75;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Footer */
+.footer {
+    border-top: 1px solid #e8e6ee;
+    padding: 20px 48px;
+    text-align: center;
+    font-size: 12px;
+    color: #94a3b8;
+}
+</style>
+</head>
+<body>
+<div class="page">
+    <!-- Header -->
+    <div class="header">
+        <h1>GridLock — System Architecture</h1>
+        <p>End-to-end AI pipeline for illegal parking intelligence in Bengaluru</p>
+    </div>
+
+    <div class="content">
+
+        <!-- ═══ LAYER 1: DATA SOURCE ═══ -->
+        <div class="section-label">Layer 1 — Data Ingestion</div>
+        <div class="layer">
+            <div class="layer-label">
+                <div class="num">01</div>
+                <div class="name">Raw Data</div>
+            </div>
+            <div class="layer-boxes">
+                <div class="box">
+                    <div class="icon">📊</div>
+                    <h4>Bengaluru Traffic Police Dataset</h4>
+                    <p>298,445 parking violation records — Nov 2023 to Apr 2024</p>
+                    <span class="tag">24 columns · 30 districts</span>
+                </div>
+                <div class="box">
+                    <div class="icon">🗺️</div>
+                    <h4>OSMnx Road Network</h4>
+                    <p>450,198 driveable road edges across Bengaluru via OpenStreetMap</p>
+                    <span class="tag blue">178,905 nodes</span>
+                </div>
+                <div class="box">
+                    <div class="icon">📍</div>
+                    <h4>GPS Coordinates</h4>
+                    <p>Latitude / longitude for each violation (12.8°–13.1° N, 77.4°–77.8° E)</p>
+                    <span class="tag green">Lat/Lon pairs</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="connector"><div class="connector-line"></div></div>
+
+        <!-- ═══ LAYER 2: PREPROCESSING ═══ -->
+        <div class="section-label">Layer 2 — Preprocessing & Spatial Alignment</div>
+        <div class="layer">
+            <div class="layer-label">
+                <div class="num">02</div>
+                <div class="name">Clean & Align</div>
+            </div>
+            <div class="layer-boxes">
+                <div class="box">
+                    <div class="icon">🔧</div>
+                    <h4>Data Cleaning</h4>
+                    <p>Dedup, parse timestamps, filter invalid GPS, extract violation features</p>
+                    <span class="tag">298K → clean</span>
+                </div>
+                <div class="box">
+                    <div class="icon">📐</div>
+                    <h4>CRS Conversion</h4>
+                    <p>EPSG:4326 → EPSG:32643 (UTM Zone 43N) for metric distance accuracy</p>
+                    <span class="tag green">Verified 9,189m</span>
+                </div>
+                <div class="box">
+                    <div class="icon">🛣️</div>
+                    <h4>Road Snapping</h4>
+                    <p>KDTree nearest-neighbor: snap each violation to nearest road edge</p>
+                    <span class="tag amber">95.4% within 100m</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="connector"><div class="connector-line"></div></div>
+
+        <!-- ═══ LAYER 3: SPATIAL INDEXING ═══ -->
+        <div class="section-label">Layer 3 — Spatial Indexing</div>
+        <div class="layer">
+            <div class="layer-label">
+                <div class="num">03</div>
+                <div class="name">H3 Hex Grid</div>
+            </div>
+            <div class="layer-boxes">
+                <div class="box">
+                    <div class="icon">⬡</div>
+                    <h4>Uber H3 Resolution 8</h4>
+                    <p>Map 298K GPS points → 776 hexagonal zones (~464m edge, ~0.74 km² each)</p>
+                    <span class="tag">776 hexes</span>
+                </div>
+                <div class="box">
+                    <div class="icon">聚合</div>
+                    <h4>Per-Hex Aggregation</h4>
+                    <p>Violation count, top type, peak hour, police station, avg severity per hex</p>
+                    <span class="tag blue">Aggregated stats</span>
+                </div>
+                <div class="box">
+                    <div class="icon">📊</div>
+                    <h4>Velocity Deficit (ΔV)</h4>
+                    <p>Physics formula: free_flow_speed × lane_blockage_factor per violation type</p>
+                    <span class="tag green">Avg 5.3 km/h deficit</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="connector"><div class="connector-line"></div></div>
+
+        <!-- ═══ LAYER 4: SCORING ═══ -->
+        <div class="section-label">Layer 4 — Scoring & Classification</div>
+        <div class="layer">
+            <div class="layer-label">
+                <div class="num">04</div>
+                <div class="name">Score & Rank</div>
+            </div>
+            <div class="layer-boxes">
+                <div class="box">
+                    <div class="icon">📈</div>
+                    <h4>Congestion Penalty Index</h4>
+                    <p>CPI = 0.30×Density + 0.25×Road + 0.30×ΔV + 0.15×Severity</p>
+                    <span class="tag">0.128 — 0.594</span>
+                </div>
+                <div class="box">
+                    <div class="icon">🎯</div>
+                    <h4>Risk Classification</h4>
+                    <p>Percentile qcut → Low / Medium / High / Critical (~194 zones each)</p>
+                    <span class="tag red">194 Critical zones</span>
+                </div>
+                <div class="box">
+                    <div class="icon">🏆</div>
+                    <h4>Enforcement Priority</h4>
+                    <p>Weighted score: 35% violations + 25% density + 20% ΔV + 20% multi-vio</p>
+                    <span class="tag amber">Ranked zones</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="connector"><div class="connector-line"></div></div>
+
+        <!-- ═══ LAYER 5: ML ENGINE ═══ -->
+        <div class="section-label">Layer 5 — Machine Learning Engine</div>
+        <div class="layer">
+            <div class="layer-label">
+                <div class="num">05</div>
+                <div class="name">Predict & Optimize</div>
+            </div>
+            <div class="layer-boxes">
+                <div class="box">
+                    <div class="icon">🌲</div>
+                    <h4>XGBoost Regressor</h4>
+                    <p>Predicts violation severity 4 hours ahead</p>
+                    <span class="tag green">R² = 0.977</span>
+                </div>
+                <div class="box">
+                    <div class="icon">🌲</div>
+                    <h4>LightGBM Regressor</h4>
+                    <p>Predicts velocity deficit per zone per time window</p>
+                    <span class="tag">R² = 0.487</span>
+                </div>
+                <div class="box">
+                    <div class="icon">🚀</div>
+                    <h4>Greedy Dispatch Optimizer</h4>
+                    <p>5 patrol routes × 8 stops each, maximizing velocity recovery per stop</p>
+                    <span class="tag amber">5 routes</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="connector"><div class="connector-line"></div></div>
+
+        <!-- ═══ LAYER 6: OUTPUT ═══ -->
+        <div class="section-label">Layer 6 — Output & Visualization</div>
+        <div class="layer">
+            <div class="layer-label">
+                <div class="num">06</div>
+                <div class="name">Deliver</div>
+            </div>
+            <div class="layer-boxes">
+                <div class="box">
+                    <div class="icon">🗺️</div>
+                    <h4>Interactive Maps</h4>
+                    <p>Folium hotspot map (776 hexes) + patrol route map (5 routes)</p>
+                    <span class="tag">hotspot_map.html</span>
+                </div>
+                <div class="box">
+                    <div class="icon">📊</div>
+                    <h4>Streamlit Dashboard</h4>
+                    <p>Full UI: problem → data → pipeline → predictions → impact → dispatch</p>
+                    <span class="tag blue">dashboard.py</span>
+                </div>
+                <div class="box">
+                    <div class="icon">💰</div>
+                    <h4>Economic Impact Report</h4>
+                    <p>Rs. 62.4 Cr annual loss: productivity + fuel × commuters × trip length</p>
+                    <span class="tag red">economic_impact.csv</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- ═══ DATA FLOW SUMMARY ═══ -->
+        <div class="section-label" style="margin-top:48px">End-to-End Data Flow</div>
+        <div class="data-flow">
+            <div class="df-box">
+                <h4>298K Raw Records</h4>
+                <p>CSV + GPS + timestamps</p>
+            </div>
+            <div class="df-arrow">→</div>
+            <div class="df-box">
+                <h4>776 H3 Hex Zones</h4>
+                <p>CPI + Risk + ΔV scored</p>
+            </div>
+            <div class="df-arrow">→</div>
+            <div class="df-box">
+                <h4>5 Patrol Routes</h4>
+                <p>8 stops each, optimized</p>
+            </div>
+        </div>
+
+        <!-- ═══ OUTPUT FILES ═══ -->
+        <div class="section-label">Output Files</div>
+        <div class="output-grid">
+            <div class="output-card">
+                <h4>H3 Analysis</h4>
+                <p>Per-hex stats: CPI, risk, violations, ΔV, road, station</p>
+                <div class="file">h3_analysis.csv</div>
+            </div>
+            <div class="output-card">
+                <h4>Predictions</h4>
+                <p>776 hexes × 4 time windows: severity + ΔV forecasts</p>
+                <div class="file">predictions.csv</div>
+            </div>
+            <div class="output-card">
+                <h4>Dispatch Guide</h4>
+                <p>Top 30 priority zones with velocity recovery ranking</p>
+                <div class="file">dispatch_guide.csv</div>
+            </div>
+            <div class="output-card">
+                <h4>Economic Impact</h4>
+                <p>Daily + annual loss: productivity, fuel, total cost</p>
+                <div class="file">economic_impact.csv</div>
+            </div>
+            <div class="output-card">
+                <h4>Hotspot Map</h4>
+                <p>Interactive Folium map with 776 colored hex polygons</p>
+                <div class="file">hotspot_map.html</div>
+            </div>
+            <div class="output-card">
+                <h4>Route Map</h4>
+                <p>5 patrol routes with color-coded stops</p>
+                <div class="file">route_map.html</div>
+            </div>
+            <div class="output-card">
+                <h4>ML Models</h4>
+                <p>Trained XGBoost + LightGBM + risk classifier</p>
+                <div class="file">*.pkl</div>
+            </div>
+            <div class="output-card">
+                <h4>Kepler GeoJSON</h4>
+                <p>776 hex boundaries for Kepler.gl 3D visualization</p>
+                <div class="file">h3_hexes.geojson</div>
+            </div>
+        </div>
+
+        <!-- ═══ IMPACT ═══ -->
+        <div class="section-label">Impact Summary</div>
+        <div class="impact-grid">
+            <div class="impact-card">
+                <div class="val">Rs. 62.4 Cr</div>
+                <div class="lbl">Annual Economic Loss Found</div>
+            </div>
+            <div class="impact-card">
+                <div class="val">2,414 hrs</div>
+                <div class="lbl">Commuter Hours Wasted Daily</div>
+            </div>
+            <div class="impact-card">
+                <div class="val">125 seconds</div>
+                <div class="lbl">Full Pipeline Runtime</div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        GridLock — Flipkart Gridlock Hackathon 2025 &nbsp;|&nbsp; Bengaluru Parking Intelligence Platform
+    </div>
+</div>
+</body>
+</html>

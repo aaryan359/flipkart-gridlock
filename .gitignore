@@ -1,0 +1,7 @@
+venv
+cache/
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store
+jan to may police violation_anonymized791b166.csv

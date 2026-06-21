@@ -1,0 +1,31 @@
+h3_index,location,primary_road,violations_per_day,velocity_recovery_kmh,estimated_commuters_affected,total_time_saved_hrs,cpi,risk_level,police_station
+8861892f5bfffff,"13.0154, 77.7094",Ayyappa Nagar - Battarahalli Road,0.0,13.5,0,0.1,0.3267,Critical,K.R. Pura
+8860145911fffff,"13.0386, 77.5209",unknown,0.0,12.0,0,0.1,0.3672,Critical,Peenya
+88601459cdfffff,"13.0337, 77.5127",unknown,0.0,12.0,0,0.1,0.2713,High,Peenya
+8861892037fffff,"12.9648, 77.7617",2nd Main Road,0.0,12.0,0,0.1,0.2666,High,Whitefield
+88618920c5fffff,"12.9341, 77.7433",Balagere Road,0.0,11.9,0,0.1,0.2853,Critical,Whitefield
+8860145ac3fffff,"12.9227, 77.4946",unknown,0.0,10.0,0,0.1,0.324,Critical,Kengeri
+8860145a45fffff,"12.9356, 77.5612",13th Cross Road,0.0,9.0,0,0.1,0.2392,Medium,Basavanagudi
+8861892463fffff,"12.8993, 77.6453",4th Cross Road,0.0,9.0,0,0.1,0.3047,Critical,HSR Layout
+886189252dfffff,"12.9632, 77.6754",unknown,0.0,9.0,0,0.1,0.3375,Critical,HAL Old Airport
+8860145811fffff,"12.9880, 77.4945",BWSSB Pipeline Track,0.0,9.0,0,0.1,0.2228,Medium,Kamakshipalya
+886016970dfffff,"13.1506, 77.6180",unknown,0.0,8.9,0,0.1,0.3129,Critical,Chikkajala
+886016906bfffff,"13.1999, 77.7086",unknown,0.0,8.9,0,0.1,0.2228,Medium,Devanahalli Airport
+8860169107fffff,"13.2646, 77.7188",unknown,0.0,8.9,0,0.1,0.2368,Medium,Devanahalli Airport
+8861892565fffff,"12.9550, 77.6862",Varthur Road,0.0,7.5,0,0.1,0.2719,High,HAL Old Airport
+8860169699fffff,"13.0807, 77.5021",Hesaraghatta Road,0.0,7.5,0,0.1,0.2899,Critical,Chikkabanavara
+8861892081fffff,"12.9390, 77.7173",Inner Peripheral Ring Road,0.0,7.5,0,0.1,0.2755,High,Whitefield
+8861892181fffff,"12.9894, 77.7487",Whitefield Road,0.0,7.4,0,0.1,0.2935,Critical,Mahadevapura
+8860145817fffff,"12.9972, 77.4896",Herohalli Main Road,0.0,6.7,0,0.1,0.2913,Critical,Kamakshipalya
+8861892711fffff,"12.8782, 77.6719",Central Jail Road,0.0,6.7,0,0.1,0.2505,High,Electronic City
+8860145925fffff,"13.0752, 77.5578",Vidyaranyapura Road,0.0,6.7,0,0.1,0.2661,High,Yelahanka
+886014593dfffff,"13.0638, 77.5343",unknown,0.0,6.7,0,0.1,0.2505,High,Jalahalli
+8861892f57fffff,"13.0306, 77.7170",unknown,0.0,6.7,0,0.1,0.2421,Medium,K.R. Pura
+886014511dfffff,"12.8838, 77.5019",100 Feet Road,0.0,6.7,0,0.1,0.2541,High,Thalagattapura
+8860145ad1fffff,"12.9150, 77.4808",unknown,0.0,6.7,0,0.1,0.2433,Medium,Kengeri
+8860145ae5fffff,"12.9610, 77.5098",Mallathahalli Road,0.0,6.7,0,0.1,0.2913,Critical,Jnanabharathi
+88601459c5fffff,"13.0364, 77.5043",Andrahalli Main Road,0.0,6.7,0,0.1,0.2469,High,Peenya
+8860145a55fffff,"12.9283, 77.5462",unknown,0.0,6.0,0,0.1,0.2411,Medium,Banashankari
+8861892635fffff,"12.8599, 77.6479",unknown,0.0,6.0,0,0.1,0.2171,Low,Electronic City
+886189262dfffff,"12.8611, 77.6748",1st Main Road,0.0,6.0,0,0.1,0.2255,Medium,Electronic City
+886189272bfffff,"12.9012, 77.6887",unknown,0.0,6.0,0,0.1,0.2243,Medium,Bellandur
