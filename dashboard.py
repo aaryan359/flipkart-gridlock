@@ -27,13 +27,13 @@ st.markdown("""
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap');
 
 :root {
-    --bg-dark: #f8fafc;
-    --card-bg: #ffffff;
-    --card-border: rgba(99, 102, 241, 0.12);
-    --accent: #4f46e5;
-    --accent-glow: rgba(79, 70, 229, 0.1);
-    --text-primary: #0f172a;
-    --text-secondary: #475569;
+    --bg-dark: #090d16;
+    --card-bg: rgba(21, 27, 45, 0.7);
+    --card-border: rgba(99, 102, 241, 0.15);
+    --accent: #6366f1;
+    --accent-glow: rgba(99, 102, 241, 0.25);
+    --text-primary: #f8fafc;
+    --text-secondary: #94a3b8;
     --success: #10b981;
     --warning: #f59e0b;
     --danger: #ef4444;
@@ -42,7 +42,7 @@ st.markdown("""
 /* App Background */
 .stApp {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f8fafc !important;
+    background: radial-gradient(circle at 50% 50%, #0c1020, #060814) !important;
     color: var(--text-primary);
 }
 
@@ -66,15 +66,15 @@ section.main > div.block-container {
 
 /* Sidebar Custom Styling */
 section[data-testid="stSidebar"] {
-    background-color: #ffffff !important;
-    border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
-    color: #0f172a !important;
+    background-color: #060814 !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+    color: #f8fafc !important;
 }
 
 section[data-testid="stSidebar"] .stSelectbox, 
 section[data-testid="stSidebar"] .stMultiSelect, 
 section[data-testid="stSidebar"] .stRadio {
-    background-color: #f1f5f9 !important;
+    background-color: rgba(21, 27, 45, 0.6) !important;
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 12px;
@@ -85,20 +85,32 @@ section[data-testid="stSidebar"] h2,
 section[data-testid="stSidebar"] h3,
 section[data-testid="stSidebar"] h4,
 section[data-testid="stSidebar"] p,
-section[data-testid="stSidebar"] label,
-section[data-testid="stSidebar"] span {
-    color: #0f172a !important;
+section[data-testid="stSidebar"] label {
+    color: #f8fafc !important;
 }
 
-section[data-testid="stSidebar"] .stRadio label,
-section[data-testid="stSidebar"] .stRadio span {
-    color: #0f172a !important;
+/* Exclude multiselect tags/chips from the global sidebar span style */
+section[data-testid="stSidebar"] span:not([data-baseweb="tag"] span) {
+    color: #f8fafc !important;
+}
+
+/* MultiSelect Tag styling */
+div[data-baseweb="tag"] {
+    background-color: #312e81 !important;
+    border-radius: 6px !important;
+    border: 1px solid rgba(99, 102, 241, 0.3) !important;
+}
+div[data-baseweb="tag"] span {
+    color: #ffffff !important;
+}
+div[data-baseweb="tag"] svg {
+    fill: #ffffff !important;
 }
 
 /* Custom Headers */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Outfit', sans-serif !important;
-    color: #0f172a !important;
+    color: #f8fafc !important;
 }
 
 /* Live Telemetry Indicator Styling */
@@ -106,8 +118,8 @@ h1, h2, h3, h4, h5, h6 {
     display: flex;
     align-items: center;
     gap: 8px;
-    background: rgba(16, 185, 129, 0.08);
-    border: 1px solid rgba(16, 185, 129, 0.2);
+    background: rgba(16, 185, 129, 0.1);
+    border: 1px solid rgba(16, 185, 129, 0.3);
     padding: 6px 12px;
     border-radius: 20px;
     width: fit-content;
@@ -127,7 +139,7 @@ h1, h2, h3, h4, h5, h6 {
     100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(16, 185, 129, 0); }
 }
 .live-text {
-    color: #065f46;
+    color: #34d399;
     font-size: 11px;
     font-weight: 700;
     text-transform: uppercase;
@@ -140,14 +152,14 @@ h1, h2, h3, h4, h5, h6 {
     justify-content: space-between;
     align-items: center;
     padding: 12px 0 24px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     margin-bottom: 24px;
 }
 .logo-title {
     font-family: 'Outfit', sans-serif;
     font-size: 26px;
     font-weight: 800;
-    color: #0f172a;
+    color: #f8fafc;
     display: flex;
     align-items: center;
     gap: 8px;
@@ -158,15 +170,15 @@ h1, h2, h3, h4, h5, h6 {
     height: 12px;
     background: var(--accent);
     border-radius: 50%;
-    box-shadow: 0 0 12px var(--accent-glow);
+    box-shadow: 0 0 12px var(--accent);
 }
 
 /* ── Tabs Styling Overrides ── */
 div[data-baseweb="tab-list"] {
-    background-color: #f1f5f9 !important;
+    background-color: #151b2d !important;
     border-radius: 12px !important;
     padding: 6px !important;
-    border: 1px solid rgba(0, 0, 0, 0.06) !important;
+    border: 1px solid rgba(255, 255, 255, 0.08) !important;
     margin-bottom: 24px !important;
 }
 button[data-baseweb="tab"] {
@@ -183,7 +195,7 @@ button[data-baseweb="tab"] {
 button[data-baseweb="tab"][aria-selected="true"] {
     color: #ffffff !important;
     background-color: var(--accent) !important;
-    box-shadow: 0 4px 15px rgba(79, 70, 229, 0.25) !important;
+    box-shadow: 0 4px 15px rgba(99, 102, 241, 0.4) !important;
 }
 
 /* ── Glassmorphic Cards ── */
@@ -192,8 +204,9 @@ button[data-baseweb="tab"][aria-selected="true"] {
     border: 1px solid var(--card-border);
     border-radius: 16px;
     padding: 24px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
     margin-bottom: 24px;
+    backdrop-filter: blur(12px);
 }
 
 /* ── KPI Metric Cards ── */
@@ -205,33 +218,35 @@ button[data-baseweb="tab"][aria-selected="true"] {
     margin-top: 0px;
 }
 .kpi-card {
-    background: #ffffff;
+    background: rgba(21, 27, 45, 0.6);
     border: 1px solid var(--card-border);
     border-radius: 12px;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     transition: transform 0.2s, border-color 0.2s;
     min-height: 120px;
     display: flex;
     flex-direction: column;
     justify-content: center;
+    backdrop-filter: blur(10px);
 }
 .kpi-card:hover {
     transform: translateY(-2px);
     border-color: var(--accent);
+    box-shadow: 0 6px 25px rgba(99, 102, 241, 0.15);
 }
 .kpi-val {
     font-size: 32px;
     font-weight: 800;
-    color: #0f172a;
+    color: #ffffff;
     font-family: 'Outfit', sans-serif;
     margin-top: 4px;
     letter-spacing: -0.5px;
 }
 .kpi-lbl {
     font-size: 11px;
-    color: var(--accent);
+    color: #818cf8;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.8px;
@@ -244,16 +259,17 @@ button[data-baseweb="tab"][aria-selected="true"] {
 
 /* ── Flashing Red Alert Panel ── */
 @keyframes flash-red {
-    0%, 100% { border-color: rgba(239, 68, 68, 0.2); box-shadow: 0 0 10px rgba(239, 68, 68, 0.05); }
-    50% { border-color: rgba(239, 68, 68, 0.6); box-shadow: 0 0 15px rgba(239, 68, 68, 0.15); background: rgba(239, 68, 68, 0.02); }
+    0%, 100% { border-color: rgba(239, 68, 68, 0.3); box-shadow: 0 0 10px rgba(239, 68, 68, 0.1); }
+    50% { border-color: rgba(239, 68, 68, 0.8); box-shadow: 0 0 18px rgba(239, 68, 68, 0.3); background: rgba(239, 68, 68, 0.05); }
 }
 .alert-panel {
-    border: 1px solid rgba(239, 68, 68, 0.2);
+    border: 1px solid rgba(239, 68, 68, 0.3);
     border-radius: 14px;
     padding: 20px;
-    background: #ffffff;
+    background: rgba(21, 27, 45, 0.6);
     animation: flash-red 2.5s infinite;
     margin-bottom: 24px;
+    backdrop-filter: blur(10px);
 }
 .alert-header {
     display: flex;
@@ -268,11 +284,12 @@ button[data-baseweb="tab"][aria-selected="true"] {
 
 /* ── Premium Priority Queue Table ── */
 .dispatch-table-container {
-    background: #ffffff;
+    background: rgba(21, 27, 45, 0.6);
     border: 1px solid var(--card-border);
     border-radius: 12px;
     overflow: hidden;
     margin-top: 12px;
+    backdrop-filter: blur(10px);
 }
 .dispatch-table {
     width: 100%;
@@ -281,8 +298,8 @@ button[data-baseweb="tab"][aria-selected="true"] {
     color: var(--text-primary);
 }
 .dispatch-table th {
-    background: #f1f5f9;
-    color: #0f172a;
+    background: #151b2d;
+    color: #f8fafc;
     font-weight: 600;
     padding: 14px 16px;
     text-align: left;
@@ -291,10 +308,10 @@ button[data-baseweb="tab"][aria-selected="true"] {
 }
 .dispatch-table td {
     padding: 12px 16px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 .dispatch-table tr:hover {
-    background: #f8fafc;
+    background: rgba(255, 255, 255, 0.03);
 }
 .badge {
     display: inline-block;
@@ -303,38 +320,38 @@ button[data-baseweb="tab"][aria-selected="true"] {
     font-size: 11px;
     font-weight: 700;
 }
-.badge-danger { background: #fef2f2; color: #b91c1c; border: 1px solid #fca5a5; }
-.badge-warning { background: #fffbeb; color: #b45309; border: 1px solid #fde68a; }
-.badge-success { background: #ecfdf5; color: #047857; border: 1px solid #a7f3d0; }
+.badge-danger { background: rgba(239, 68, 68, 0.15); color: #fca5a5; border: 1px solid rgba(239, 68, 68, 0.4); }
+.badge-warning { background: rgba(245, 158, 11, 0.15); color: #fde68a; border: 1px solid rgba(245, 158, 11, 0.4); }
+.badge-success { background: rgba(16, 185, 129, 0.15); color: #a7f3d0; border: 1px solid rgba(16, 185, 129, 0.4); }
 
 /* Impact Badge for ORR vs Comm. St Comparison */
 .impact-badge-high {
-    background: linear-gradient(135deg, #ecfdf5, #ecfeff) !important;
-    color: #0d9488 !important;
-    border: 1px solid #99f6e4 !important;
-    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.08);
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.15), rgba(6, 182, 212, 0.15)) !important;
+    color: #2dd4bf !important;
+    border: 1px solid rgba(45, 212, 191, 0.4) !important;
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.15);
 }
 .impact-badge-low {
-    background: #f1f5f9 !important;
-    color: #475569 !important;
-    border: 1px solid #cbd5e1 !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #94a3b8 !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
 }
 
 /* ── Custom Button Styling ── */
 div.stButton > button {
-    background: linear-gradient(135deg, #4f46e5, #4338ca) !important;
+    background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
     color: #ffffff !important;
     border: none !important;
     border-radius: 8px !important;
     padding: 10px 24px !important;
     font-weight: 600 !important;
     font-size: 13.5px !important;
-    box-shadow: 0 4px 14px rgba(79, 70, 229, 0.2) !important;
+    box-shadow: 0 4px 14px rgba(99, 102, 241, 0.3) !important;
     transition: all 0.2s !important;
 }
 div.stButton > button:hover {
-    background: linear-gradient(135deg, #6366f1, #4f46e5) !important;
-    box-shadow: 0 6px 18px rgba(79, 70, 229, 0.3) !important;
+    background: linear-gradient(135deg, #818cf8, #6366f1) !important;
+    box-shadow: 0 6px 18px rgba(99, 102, 241, 0.4) !important;
     transform: translateY(-1px);
 }
 div.stButton > button:active {
@@ -347,14 +364,14 @@ div.stButton > button:active {
     height: 8px;
 }
 ::-webkit-scrollbar-track {
-    background: #f1f5f9;
+    background: #090d16;
 }
 ::-webkit-scrollbar-thumb {
-    background: rgba(79, 70, 229, 0.2);
+    background: rgba(99, 102, 241, 0.3);
     border-radius: 4px;
 }
 ::-webkit-scrollbar-thumb:hover {
-    background: rgba(79, 70, 229, 0.4);
+    background: rgba(99, 102, 241, 0.5);
 }
 </style>
 """, unsafe_allow_html=True)
@@ -428,7 +445,7 @@ st.markdown("""
 # SIDEBAR CONTROLS (Common filters)
 # ============================================================
 st.sidebar.markdown("""
-<h3 style='margin-top:0px; border-bottom: 1px solid rgba(15,23,42,0.10); padding-bottom: 10px; font-family:"Outfit"; color:#0f172a;'>
+<h3 style='margin-top:0px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; font-family:"Outfit"; color:#f8fafc;'>
     Command Filters
 </h3>
 """, unsafe_allow_html=True)
@@ -452,7 +469,7 @@ selected_road_categories = st.sidebar.multiselect(
 )
 
 # 3. Time-of-day Quick Presets
-st.sidebar.markdown("<p style='font-size:13.5px; font-weight:600; margin-bottom:4px; color:#4f46e5'>Time-of-Day Preset</p>", unsafe_allow_html=True)
+st.sidebar.markdown("<p style='font-size:13.5px; font-weight:600; margin-bottom:4px; color:#818cf8'>Time-of-Day Preset</p>", unsafe_allow_html=True)
 time_preset = st.sidebar.radio(
     "Select Preset",
     ["Custom Slider", "Morning Peak (08:00)", "Midday Normal (12:00)", "Evening Rush (17:00)", "Late Night (21:00)"],
@@ -598,10 +615,10 @@ with tab1:
             rush_hour_text = "Evening Rush Hour"
         
         st.markdown(f"""
-        <div style="background: rgba(108, 92, 231, 0.1); border: 1px solid var(--accent-border); border-radius: 8px; padding: 12px; text-align: center; margin-top: 10px;">
-            <span style="font-size: 13px; color: #4f46e5; font-weight: 700; text-transform: uppercase;">Active Profile</span>
-            <div style="font-size: 16px; color: #0f172a; font-weight: 800; margin-top: 2px;">{rush_hour_text}</div>
-            <div style="font-size: 12px; color: #475569; margin-top: 4px;">Time Selected: {selected_hour:02d}:00 Hrs</div>
+        <div style="background: rgba(99, 102, 241, 0.1); border: 1px solid rgba(99, 102, 241, 0.3); border-radius: 8px; padding: 12px; text-align: center; margin-top: 10px;">
+            <span style="font-size: 13px; color: #818cf8; font-weight: 700; text-transform: uppercase;">Active Profile</span>
+            <div style="font-size: 16px; color: #ffffff; font-weight: 800; margin-top: 2px;">{rush_hour_text}</div>
+            <div style="font-size: 12px; color: #94a3b8; margin-top: 4px;">Time Selected: {selected_hour:02d}:00 Hrs</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -616,7 +633,7 @@ with tab1:
             
     with col_map:
         # Create map and prepare filtered hexagon data
-        m = folium.Map([12.9716, 77.5946], zoom_start=12, tiles='CartoDB positron', scrollWheelZoom=False)
+        m = folium.Map([12.9716, 77.5946], zoom_start=12, tiles='CartoDB dark_matter', scrollWheelZoom=False)
         
         filtered_features = []
         for feature in geojson_raw['features']:
@@ -680,7 +697,7 @@ with tab1:
                     fields=['road', 'station', 'simulated_cpi', 'peak_hour', 'risk_level'],
                     aliases=['Street Name:', 'Police Jurisdiction:', 'Simulated CPI:', 'Peak Hour:', 'Baseline Risk:'],
                     localize=True,
-                    style="font-family:'Plus Jakarta Sans', sans-serif; font-size:12px; color:#0f172a; background-color:#ffffff; border:1px solid rgba(0,0,0,0.06); padding:8px; border-radius:4px;"
+                    style="font-family:'Plus Jakarta Sans', sans-serif; font-size:12px; color:#f8fafc; background-color:#151b2d; border:1px solid rgba(255,255,255,0.08); padding:8px; border-radius:4px;"
                 )
             ).add_to(m)
             
@@ -769,9 +786,9 @@ with tab2:
     
     dispatch_df[['lat', 'lon']] = dispatch_df['location'].str.split(',', expand=True).astype(float)
     
-    m2 = folium.Map([12.9716, 77.5946], zoom_start=12, tiles='CartoDB positron', scrollWheelZoom=False)
+    m2 = folium.Map([12.9716, 77.5946], zoom_start=12, tiles='CartoDB dark_matter', scrollWheelZoom=False)
     
-    patrol_colors = ['#4f46e5', '#06b6d4', '#10b981', '#f59e0b', '#ef4444']
+    patrol_colors = ['#6366f1', '#06b6d4', '#10b981', '#fb923c', '#f87171']
     
     # Render patrol paths as dotted lines and markers
     for pid in range(5):
@@ -791,7 +808,7 @@ with tab2:
                     fill_opacity=0.85,
                     weight=2,
                     popup=folium.Popup(
-                        f"""<div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:12px; min-width:180px; color:#0f172a;">
+                        f"""<div style="font-family:'Plus Jakarta Sans', sans-serif; font-size:12px; min-width:180px; color:#f8fafc; background-color:#151b2d; padding:10px; border-radius:6px; border:1px solid rgba(255,255,255,0.08);">
                             <div style="font-size:14px; font-weight:800; color:{patrol_colors[pid]}">Patrol Route {pid+1}</div>
                             <div style="margin-top:6px"><b>Street:</b> {row['primary_road']}</div>
                             <div><b>Risk Class:</b> {row['risk_level']}</div>
@@ -853,16 +870,16 @@ with tab3:
             labels=dict(x="Hour of Day", y="Day of Week", color="Violations Logged"),
             x=list(range(24)),
             y=day_order,
-            color_continuous_scale=[[0, '#f8fafc'], [0.35, '#c7d2fe'], [0.75, '#4f46e5'], [1.0, '#ef4444']]
+            color_continuous_scale=[[0, '#151b2d'], [0.35, '#312e81'], [0.75, '#6366f1'], [1.0, '#ef4444']]
         )
         fig_heat.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
-            font=dict(family='Plus Jakarta Sans', color='#0f172a', size=11),
+            font=dict(family='Plus Jakarta Sans', color='#f8fafc', size=11),
             margin=dict(l=20, r=20, t=10, b=20),
             height=340,
-            xaxis=dict(tickmode='linear', tick0=0, dtick=2, gridcolor='rgba(0, 0, 0, 0.05)'),
-            yaxis=dict(gridcolor='rgba(0, 0, 0, 0.05)'),
+            xaxis=dict(tickmode='linear', tick0=0, dtick=2, gridcolor='rgba(255, 255, 255, 0.08)'),
+            yaxis=dict(gridcolor='rgba(255, 255, 255, 0.08)'),
             coloraxis_showscale=True
         )
         st.plotly_chart(fig_heat, use_container_width=True)
@@ -904,12 +921,12 @@ with tab3:
         fig_corr.update_layout(
             plot_bgcolor='rgba(0,0,0,0)',
             paper_bgcolor='rgba(0,0,0,0)',
-            font=dict(family='Plus Jakarta Sans', color='#0f172a', size=11),
+            font=dict(family='Plus Jakarta Sans', color='#f8fafc', size=11),
             margin=dict(l=10, r=10, t=10, b=20),
             height=340,
-            xaxis=dict(gridcolor='rgba(0, 0, 0, 0.05)', title_font=dict(size=12)),
-            yaxis=dict(gridcolor='rgba(0, 0, 0, 0.05)', title_font=dict(size=12)),
-            legend=dict(title='Risk Class', y=1.02, x=0.8, bgcolor='rgba(255, 255, 255, 0.8)')
+            xaxis=dict(gridcolor='rgba(255, 255, 255, 0.08)', title_font=dict(size=12)),
+            yaxis=dict(gridcolor='rgba(255, 255, 255, 0.08)', title_font=dict(size=12)),
+            legend=dict(title='Risk Class', y=1.02, x=0.8, bgcolor='rgba(21, 27, 45, 0.8)', font=dict(color='#f8fafc'))
         )
         st.plotly_chart(fig_corr, use_container_width=True)
         

@@ -399,7 +399,7 @@ for pid in range(5):
     if route:
         routes.append({'patrol':pid+1,'stops':route,'total_vio':sum(s['violations'] for s in route)})
 
-m2 = folium.Map([cla,clo], zoom_start=12, tiles='CartoDB positron')
+m2 = folium.Map([cla,clo], zoom_start=12, tiles='CartoDB dark_matter')
 cols = ['red','blue','green','purple','orange','darkred','darkblue']
 for rt in routes:
     pid,col = rt['patrol'], cols[(rt['patrol']-1)%len(cols)]
