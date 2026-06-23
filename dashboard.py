@@ -46,10 +46,29 @@ st.markdown("""
     color: var(--text-primary);
 }
 
+/* Remove Streamlit's default top chrome and divider line */
+header[data-testid="stHeader"] {
+    background: transparent !important;
+    border-bottom: none !important;
+    box-shadow: none !important;
+}
+
+div[data-testid="stToolbar"],
+#MainMenu,
+div[data-testid="stDecoration"] {
+    visibility: hidden !important;
+    display: none !important;
+}
+
+section.main > div.block-container {
+    padding-top: 1rem;
+}
+
 /* Sidebar Custom Styling */
 section[data-testid="stSidebar"] {
     background-color: #ffffff !important;
     border-right: 1px solid rgba(0, 0, 0, 0.06) !important;
+    color: #0f172a !important;
 }
 
 section[data-testid="stSidebar"] .stSelectbox, 
@@ -59,6 +78,21 @@ section[data-testid="stSidebar"] .stRadio {
     border-radius: 8px;
     padding: 10px;
     margin-bottom: 12px;
+}
+
+section[data-testid="stSidebar"] h1,
+section[data-testid="stSidebar"] h2,
+section[data-testid="stSidebar"] h3,
+section[data-testid="stSidebar"] h4,
+section[data-testid="stSidebar"] p,
+section[data-testid="stSidebar"] label,
+section[data-testid="stSidebar"] span {
+    color: #0f172a !important;
+}
+
+section[data-testid="stSidebar"] .stRadio label,
+section[data-testid="stSidebar"] .stRadio span {
+    color: #0f172a !important;
 }
 
 /* Custom Headers */
@@ -159,7 +193,7 @@ button[data-baseweb="tab"][aria-selected="true"] {
     border-radius: 16px;
     padding: 24px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
-    margin-bottom: 20px;
+    margin-bottom: 24px;
 }
 
 /* ── KPI Metric Cards ── */
@@ -167,16 +201,21 @@ button[data-baseweb="tab"][aria-selected="true"] {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 32px;
+    margin-top: 0px;
 }
 .kpi-card {
     background: #ffffff;
     border: 1px solid var(--card-border);
     border-radius: 12px;
-    padding: 18px;
+    padding: 20px;
     text-align: center;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.02);
     transition: transform 0.2s, border-color 0.2s;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 .kpi-card:hover {
     transform: translateY(-2px);
@@ -389,8 +428,8 @@ st.markdown("""
 # SIDEBAR CONTROLS (Common filters)
 # ============================================================
 st.sidebar.markdown("""
-<h3 style='margin-top:0px; border-bottom: 1px solid rgba(255,255,255,0.08); padding-bottom: 10px; font-family:"Outfit"'>
-    🎛️ Command Filters
+<h3 style='margin-top:0px; border-bottom: 1px solid rgba(15,23,42,0.10); padding-bottom: 10px; font-family:"Outfit"; color:#0f172a;'>
+    Command Filters
 </h3>
 """, unsafe_allow_html=True)
 
@@ -413,7 +452,7 @@ selected_road_categories = st.sidebar.multiselect(
 )
 
 # 3. Time-of-day Quick Presets
-st.sidebar.markdown("<p style='font-size:13.5px; font-weight:600; margin-bottom:4px; color:#A29BFE'>Time-of-Day Preset</p>", unsafe_allow_html=True)
+st.sidebar.markdown("<p style='font-size:13.5px; font-weight:600; margin-bottom:4px; color:#4f46e5'>Time-of-Day Preset</p>", unsafe_allow_html=True)
 time_preset = st.sidebar.radio(
     "Select Preset",
     ["Custom Slider", "Morning Peak (08:00)", "Midday Normal (12:00)", "Evening Rush (17:00)", "Late Night (21:00)"],
@@ -454,9 +493,9 @@ else:
 # MAIN PAGE ROUTING (Tabs/Pages definition)
 # ============================================================
 tab1, tab2, tab3 = st.tabs([
-    "🌐 Executive Command Center",
-    "🚚 Smart Dispatch Guide",
-    "📊 Deep-Dive Hotspot Analytics"
+    "Executive Command Center",
+    "Smart Dispatch Guide",
+    "Deep-Dive Hotspot Analytics"
 ])
 
 # ============================================================
@@ -489,23 +528,23 @@ with tab1:
     st.markdown(f"""
     <div class="kpi-row">
         <div class="kpi-card">
-            <div class="kpi-lbl">⚠️ Active Choke Points</div>
-            <div class="kpi-val">{active_choke_points:,}</div>
+            <div class="kpi-lbl">Active Choke Points</div>
+            <div class="kpi-val" style="margin: 8px 0;">{active_choke_points:,}</div>
             <div class="kpi-sub">Critical / High risk hotspots</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-lbl">⏱️ Commuter Hours Saved</div>
-            <div class="kpi-val">{st.session_state.rolling_hours_saved:,.1f}</div>
+            <div class="kpi-lbl">Commuter Hours Saved</div>
+            <div class="kpi-val" style="margin: 8px 0;">{st.session_state.rolling_hours_saved:,.1f}</div>
             <div class="kpi-sub">Enforcement rolling hours saved</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-lbl">📉 Average Speed Drop</div>
-            <div class="kpi-val">-{avg_speed_deficit:.1f} km/h</div>
+            <div class="kpi-lbl">Average Speed Drop</div>
+            <div class="kpi-val" style="margin: 8px 0;">-{avg_speed_deficit:.1f} km/h</div>
             <div class="kpi-sub">Due to illegal lane parking</div>
         </div>
         <div class="kpi-card">
-            <div class="kpi-lbl">📋 Active Violations / Day</div>
-            <div class="kpi-val">{total_violations_today:,.0f}</div>
+            <div class="kpi-lbl">Active Violations / Day</div>
+            <div class="kpi-val" style="margin: 8px 0;">{total_violations_today:,.0f}</div>
             <div class="kpi-sub">Identified vehicles blocking lanes</div>
         </div>
     </div>
@@ -517,7 +556,7 @@ with tab1:
     with col_controls:
         st.markdown("""
         <div class="glass-card" style="height: 100%; padding: 20px;">
-            <h4 style="margin-top:0px; font-family:'Outfit'">🕒 Traffic Playback</h4>
+            <h4 style="margin-top:0px; font-family:'Outfit'">Traffic Playback</h4>
             <p style="color:var(--text-secondary); font-size:13px; line-height:1.5">
                 Adjust time or click "Play" to animate how parking-induced bottlenecks and the Congestion Penalty Index (CPI) grow as daily peak rush hours hit the city network.
             </p>
@@ -530,11 +569,11 @@ with tab1:
 
         col_p, col_pa = st.columns(2)
         with col_p:
-            if st.button("▶ Play Map", use_container_width=True, key="play_btn"):
+            if st.button("Play Map", use_container_width=True, key="play_btn"):
                 st.session_state.playing = True
                 st.rerun()
         with col_pa:
-            if st.button("⏸ Pause", use_container_width=True, key="pause_btn"):
+            if st.button("Pause", use_container_width=True, key="pause_btn"):
                 st.session_state.playing = False
                 st.rerun()
                 
@@ -552,17 +591,17 @@ with tab1:
         # Explain simulated time
         rush_hour_text = "Late Night Idle"
         if 8 <= selected_hour <= 10:
-            rush_hour_text = "🚨 Morning Peak Commute"
+            rush_hour_text = "Morning Peak Commute"
         elif 12 <= selected_hour <= 14:
-            rush_hour_text = "🚗 Midday Traffic Run"
+            rush_hour_text = "Midday Traffic Run"
         elif 17 <= selected_hour <= 20:
-            rush_hour_text = "🚨 Evening Rush Hour"
+            rush_hour_text = "Evening Rush Hour"
         
         st.markdown(f"""
         <div style="background: rgba(108, 92, 231, 0.1); border: 1px solid var(--accent-border); border-radius: 8px; padding: 12px; text-align: center; margin-top: 10px;">
-            <span style="font-size: 13px; color: #a29bfe; font-weight: 700; text-transform: uppercase;">Active Profile</span>
-            <div style="font-size: 16px; color: #ffffff; font-weight: 800; margin-top: 2px;">{rush_hour_text}</div>
-            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 4px;">Time Selected: {selected_hour:02d}:00 Hrs</div>
+            <span style="font-size: 13px; color: #4f46e5; font-weight: 700; text-transform: uppercase;">Active Profile</span>
+            <div style="font-size: 16px; color: #0f172a; font-weight: 800; margin-top: 2px;">{rush_hour_text}</div>
+            <div style="font-size: 12px; color: #475569; margin-top: 4px;">Time Selected: {selected_hour:02d}:00 Hrs</div>
         </div>
         """, unsafe_allow_html=True)
 
@@ -648,7 +687,7 @@ with tab1:
         st_folium(m, height=500, use_container_width=True)
         
     # Toggle pre-rendered HTML Full Map
-    show_full_map = st.checkbox("🗺️ Toggle Pre-Rendered High-Fidelity Hotspot Map (All 776 Hexagons)", value=False)
+    show_full_map = st.checkbox("Toggle Pre-Rendered High-Fidelity Hotspot Map (All 776 Hexagons)", value=False)
     if show_full_map:
         hotspot_map_path = os.path.join(OUTPUT, 'hotspot_map.html')
         if os.path.exists(hotspot_map_path):
@@ -665,7 +704,7 @@ with tab2:
     header_html = "<div style='margin-bottom: 24px'><h2 style='margin-bottom: 4px'>Operation Smart Dispatch Guide</h2><p style='color: var(--text-secondary); margin: 0; font-size:15px'>Optimizing police towing patrol routes based on <b>Net Velocity Recovery (km/h)</b> instead of raw parked vehicle counts.</p></div>"
     st.markdown(header_html, unsafe_allow_html=True)
     
-    col_alerts, col_table = st.columns([1.5, 3])
+    col_alerts, col_table = st.columns([1.4, 3.2])
     
     # Get top bottleneck dynamically
     if not dispatch_df.empty:
@@ -691,24 +730,26 @@ with tab2:
         st.markdown(alert_html, unsafe_allow_html=True)
         
         # Render Streamlit Button
-        dispatch_click = st.button("🚀 Dispatch Towing Unit", use_container_width=True)
+        dispatch_click = st.button("Dispatch Towing Unit", use_container_width=True, key="dispatch_btn_unique")
         if dispatch_click:
             st.session_state.dispatched = True
             
         if st.session_state.dispatched:
-            dispatch_success_html = f'<div style="background: #ecfdf5; border: 1.5px solid var(--success); border-radius: 12px; padding: 16px; margin-top: 14px;"><span style="color:#065f46; font-weight:700; font-size: 14px; display:block; margin-bottom:4px;">🚨 Dispatch Successful!</span><span style="color:#047857; font-size: 13px; line-height: 1.4; display:block">Towing Patrol Unit has been redirected to <b>{top_road}</b>. Real-time traffic recovery estimate: <b>+{top_recovery:.1f} km/h</b>.</span></div>'
+            dispatch_success_html = f'<div style="background: #ecfdf5; border: 1.5px solid var(--success); border-radius: 12px; padding: 16px; margin-top: 14px; margin-bottom: 24px;"><span style="color:#065f46; font-weight:700; font-size: 14px; display:block; margin-bottom:4px;">Dispatch Successful!</span><span style="color:#047857; font-size: 13px; line-height: 1.4; display:block">Towing Patrol Unit has been redirected to <b>{top_road}</b>. Real-time traffic recovery estimate: <b>+{top_recovery:.1f} km/h</b>.</span></div>'
             st.markdown(dispatch_success_html, unsafe_allow_html=True)
+        else:
+            st.markdown('<div style="height: 16px;"></div>', unsafe_allow_html=True)
             
-        twist_html = '<div class="glass-card" style="margin-top: 18px; padding: 20px;"><h4 style="margin-top: 0px; font-family:\'Outfit\'">🎯 The Flipkart Twist: Clear Flow-on Impact</h4><p style="font-size:13px; color:var(--text-secondary); line-height:1.55">The smart dispatch engine prioritizes enforcement zones based on <b>Net Velocity Recovery (km/h)</b> rather than raw parked vehicle counts.</p><p style="font-size:13px; color:var(--text-secondary); line-height:1.55">By focusing on high-speed arterial corridors (e.g., highways with 60-80 km/h limits) rather than slow-speed residential streets, the algorithm maximizes total metropolitan network throughput.</p><p style="font-size:13px; color:var(--text-secondary); line-height:1.55; margin-bottom: 0;">Clearing a single vehicle blocking a major highway recovers substantial speed and time for thousands of commuters, compared to clearing dozens of vehicles on a local lane.</p></div>'
+        twist_html = '<div class="glass-card" style="margin-top: 0px; padding: 20px; margin-bottom: 0px;"><h4 style="margin-top: 0px; margin-bottom: 12px; font-family:\'Outfit\'">The Flipkart Twist: Clear Flow-on Impact</h4><p style="font-size:13px; color:var(--text-secondary); line-height:1.55; margin: 0 0 8px 0;">The smart dispatch engine prioritizes enforcement zones based on <b>Net Velocity Recovery (km/h)</b> rather than raw parked vehicle counts.</p><p style="font-size:13px; color:var(--text-secondary); line-height:1.55; margin: 0 0 8px 0;">By focusing on high-speed arterial corridors (e.g., highways with 60-80 km/h limits) rather than slow-speed residential streets, the algorithm maximizes total metropolitan network throughput.</p><p style="font-size:13px; color:var(--text-secondary); line-height:1.55; margin: 0;">Clearing a single vehicle blocking a major highway recovers substantial speed and time for thousands of commuters, compared to clearing dozens of vehicles on a local lane.</p></div>'
         st.markdown(twist_html, unsafe_allow_html=True)
         
     with col_table:
-        st.markdown("<h4 style='margin-top:0px; margin-bottom:6px; font-family:\"Outfit\"'>🥇 Priority Enforcement Queue</h4>", unsafe_allow_html=True)
+        st.markdown('<h4 style="margin-top:0px; margin-bottom:6px; font-family:Outfit">Priority Enforcement Queue</h4>', unsafe_allow_html=True)
         
         # Build dynamic HTML table from dispatch_df
         table_rows_html = ""
         for i, row in enumerate(dispatch_df.head(10).to_dict('records')):
-            rank_icon = "🥇 1" if i == 0 else "🥈 2" if i == 1 else "🥉 3" if i == 2 else f"{i + 1}"
+            rank_icon = "1" if i == 0 else "2" if i == 1 else "3" if i == 2 else f"{i + 1}"
             risk = row['risk_level']
             impact_badge_class = "impact-badge-high" if risk in ["Critical", "High"] else "badge-warning" if risk == "Medium" else "impact-badge-low"
             
@@ -724,7 +765,7 @@ with tab2:
         st.markdown(table_html, unsafe_allow_html=True)
         
     # Optimized Patrol Routes Map Section
-    st.markdown("<h4 style='margin-top:24px; margin-bottom:12px; font-family:\"Outfit\"'>📍 Optimized Dispatch Route Projections</h4>", unsafe_allow_html=True)
+    st.markdown('<h4 style="margin-top:24px; margin-bottom:12px; font-family:Outfit">Optimized Dispatch Route Projections</h4>', unsafe_allow_html=True)
     
     dispatch_df[['lat', 'lon']] = dispatch_df['location'].str.split(',', expand=True).astype(float)
     
@@ -772,7 +813,7 @@ with tab2:
             
     st_folium(m2, height=450, use_container_width=True)
     
-    show_full_route_map = st.checkbox("🗺️ Toggle Pre-Rendered High-Fidelity Routes Map (HTML Overlay)", value=False)
+    show_full_route_map = st.checkbox("Toggle Pre-Rendered High-Fidelity Routes Map (HTML Overlay)", value=False)
     if show_full_route_map:
         route_map_path = os.path.join(OUTPUT, 'route_map.html')
         if os.path.exists(route_map_path):
@@ -795,10 +836,10 @@ with tab3:
     </div>
     """, unsafe_allow_html=True)
     
-    col_temporal, col_scatter = st.columns(2)
+    col_temporal, col_scatter = st.columns(2, gap="medium")
     
     with col_temporal:
-        st.markdown("<h4 style='margin-top:0px; font-family:\"Outfit\"'>📅 Temporal Congestion Heatmap</h4>", unsafe_allow_html=True)
+        st.markdown('<h4 style="margin-top:0px; margin-bottom:12px; font-family:Outfit">Temporal Congestion Heatmap</h4>', unsafe_allow_html=True)
         
         # Pivot the precomputed temporal density table
         heatmap_data = temporal_df.pivot(index='day_of_week', columns='hour', values='count')
@@ -827,7 +868,7 @@ with tab3:
         st.plotly_chart(fig_heat, use_container_width=True)
         
     with col_scatter:
-        st.markdown("<h4 style='margin-top:0px; font-family:\"Outfit\"'>🧪 Correlation: Density vs. Velocity Deficit</h4>", unsafe_allow_html=True)
+        st.markdown('<h4 style="margin-top:0px; margin-bottom:12px; font-family:Outfit">Correlation: Density vs. Velocity Deficit</h4>', unsafe_allow_html=True)
         
         # Scatter plot illustrating downward speed trend as violation density increases
         fig_corr = px.scatter(
@@ -873,7 +914,7 @@ with tab3:
         st.plotly_chart(fig_corr, use_container_width=True)
         
     # Localized Economic and Environmental Impact Card
-    st.markdown("<h4 style='margin-top:12px; margin-bottom:12px; font-family:\"Outfit\"'>☘️ Socio-Economic Impact Planner</h4>", unsafe_allow_html=True)
+    st.markdown('<h4 style="margin-top:24px; margin-bottom:16px; font-family:Outfit">Socio-Economic Impact Planner</h4>', unsafe_allow_html=True)
     
     col_card, col_select = st.columns([3, 1.2])
     
@@ -911,9 +952,9 @@ with tab3:
                 of excess carbon emissions (CO₂) monthly.
             </div>
             <div style="display:flex; gap: 24px; margin-top: 14px; border-top: 1px solid rgba(0,0,0,0.06); padding-top:12px; font-size:12.5px; color: var(--text-secondary)">
-                <div>⛽ Wasted Fuel: <b style="color:var(--text-primary);">{monthly_fuel_wasted:,.1f} Liters/mo</b></div>
-                <div>👤 Delay Footprint: <b style="color:var(--text-primary);">{station_violations_per_day*30*0.5:,.0f} Commuter-Hours/mo</b></div>
-                <div>🌲 Carbon Offset Required: <b style="color:var(--text-primary); text-decoration: underline;">{(monthly_co2_tons*45):,.0f} Urban Trees</b></div>
+                <div>Wasted Fuel: <b style="color:var(--text-primary);">{monthly_fuel_wasted:,.1f} Liters/mo</b></div>
+                <div>Delay Footprint: <b style="color:var(--text-primary);">{station_violations_per_day*30*0.5:,.0f} Commuter-Hours/mo</b></div>
+                <div>Carbon Offset Required: <b style="color:var(--text-primary); text-decoration: underline;">{(monthly_co2_tons*45):,.0f} Urban Trees</b></div>
             </div>
         </div>
         """, unsafe_allow_html=True)
@@ -922,7 +963,7 @@ with tab3:
 # TECHNICAL APPENDIX (Expander to keep main views clean)
 # ============================================================
 st.markdown("<div style='margin-top: 32px;'></div>", unsafe_allow_html=True)
-with st.expander("🛠️ Technical Pipeline Architecture & Machine Learning Specifications"):
+with st.expander("Technical Pipeline Architecture & Machine Learning Specifications"):
     
     st.markdown("""
     <div style="font-size:14px; line-height: 1.6; color: var(--text-primary);">
@@ -952,7 +993,7 @@ with st.expander("🛠️ Technical Pipeline Architecture & Machine Learning Spe
         
     st.markdown("""
     <div style="background: rgba(255, 255, 255, 0.02); border: 1px solid rgba(255, 255, 255, 0.05); padding: 16px; border-radius: 8px; margin-top: 12px;">
-        <h5 style="margin-top:0px; font-family:'Outfit'">🚀 Core Machine Learning Model Metrics</h5>
+        <h5 style="margin-top:0px; font-family:'Outfit'">Core Machine Learning Model Metrics</h5>
         <table style="width: 100%; border-collapse: collapse; font-size:13px; margin-top: 8px;">
             <tr style="border-bottom: 1.5px solid rgba(255,255,255,0.08); font-weight:600;">
                 <td style="padding: 6px 0;">Model Name</td>
@@ -985,6 +1026,6 @@ with st.expander("🛠️ Technical Pipeline Architecture & Machine Learning Spe
 st.markdown("""
 <div style="border-top: 1px solid rgba(255, 255, 255, 0.08); padding-top: 24px; text-align: center; margin-top: 40px; font-size: 12.5px; color: var(--text-secondary)">
     <p style="margin:0;"><b>GridLock Dashboard v2.0</b> — Flipkart Gridlock Hackathon Submission 2025</p>
-    <p style="margin-top: 6px;">Developed with ❤️ using H3 Hexagonal Binning, Spatial Snapping, OSMnx, Folium, Plotly, and XGBoost.</p>
+    <p style="margin-top: 6px;">Developed using H3 Hexagonal Binning, Spatial Snapping, OSMnx, Folium, Plotly, and XGBoost.</p>
 </div>
 """, unsafe_allow_html=True)
