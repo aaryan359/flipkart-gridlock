@@ -4,25 +4,6 @@ Bengaluru loses Rs. 62.4 Crore annually to illegal parking. 298,445 violations b
 
 ---
 
-## Quick Start (For Judges)
-
-**To see the dashboard — no setup needed:**
-
-The live hosted version is available at: `YOUR_STREAMLIT_URL`
-
-If you want to run locally:
-
-```bash
-git clone https://github.com/YOUR_USERNAME/flipkart-gridlock.git
-cd flipkart-gridlock
-pip install -r requirements.txt
-streamlit run dashboard.py
-```
-
-Opens at `http://localhost:8501`. The `outputs/` folder is pre-generated — the dashboard works immediately.
-
----
-
 ## What GridLock Does
 
 GridLock answers three questions that traffic police cannot answer today:
@@ -67,35 +48,27 @@ The file `run_pipeline.py` is the complete AI pipeline. It runs end-to-end in 12
 
 ## Dashboard Overview (dashboard.py)
 
-The file `dashboard.py` is a Streamlit web application with 4 tabs.
+The file `dashboard.py` is a Streamlit web application with 3 tabs:
 
-### Tab 1: Command Center
+### Tab 1: Executive Command Center
 
-- **4 KPI cards** — Critical zones, commuter hours wasted, speed deficit, daily violations
-- **Interactive hex map** — 776 H3 zones colored by CPI (green=safe, red=severe)
-- **Time playback** — Select morning/midday/evening/night to see how congestion shifts
-- **Filter by police jurisdiction and road type** via sidebar
+- **4 KPI cards** — Active choke points, rolling commuter hours saved, average speed drop, and active violations/day.
+- **Interactive spatial map** — 776 H3 hexagonal zones colored by CPI (green=safe, red=severe) with interactive tooltips.
+- **Play/Pause Time playback** — Simulates how congestion shifts dynamically across the 24-hour cycle.
+- **Command filters** — Filter by police station neighborhood jurisdiction and road classifications in the sidebar.
 
-### Tab 2: Smart Dispatch
+### Tab 2: Smart Dispatch Guide
 
-- **Bottleneck alert** — Shows the highest-priority zone right now
-- **Priority enforcement queue** — Top 10 zones ranked by velocity recovery
-- **Patrol route map** — 5 color-coded routes with 8 stops each
-- **How routes are ranked** — Explains velocity recovery vs raw violation count
+- **Bottleneck alert** — Shows the highest-priority zone and estimated delay recovery.
+- **Towing Unit dispatch simulation** — Actionable buttons simulating towing vehicle redirection and velocity recovery gains.
+- **Priority enforcement queue** — Top 10 zones ranked by speed recovery and time saved.
+- **Patrol route map** — 5 color-coded patrol route paths with 8 stops each to optimize enforcement routes.
 
-### Tab 3: Analytics
+### Tab 3: Deep-Dive Hotspot Analytics
 
-- **Temporal heatmap** — Violations by hour x day of week
-- **Scatter plot** — Violation density vs average speed (with trend line)
-- **Station-level impact** — Select any police station to see monthly fuel wasted, CO2 generated, and productivity lost
-
-### Tab 4: Statistics
-
-- **What Bengaluru loses daily** — Rs. loss, hours wasted, fuel wasted
-- **Daily cost breakdown** — Productivity loss vs fuel cost (stacked bar)
-- **What can be saved** — If top 40 zones are cleared: daily savings, hours recovered, fuel saved
-- **Before/after comparison** — Current loss vs loss after enforcement
-- **Annual summary** — Rs. 62.4 Cr loss vs Rs. X Cr savings vs recovery percentage
+- **Temporal heatmap** — Density grid showing violations aggregated by day of week and hour.
+- **Correlation scatter plot** — Violation density vs average speed to illustrate speed deficit trends.
+- **Socio-Economic Impact Planner** — Mapped neighborhood report calculating monthly fuel cost waste, productivity loss, and carbon offset (tree planting) metrics.
 
 ---
 
@@ -263,58 +236,46 @@ Percentile-based quartile split:
 
 ## System Architecture
 
-```
-Layer 1: DATA INGESTION
-  298K violation records + 450K road edges (OSMnx)
 
-Layer 2: PREPROCESSING
-  Data cleaning -> CRS conversion -> Road snapping (KDTree, 95.4%)
-
-Layer 3: SPATIAL INDEXING
-  GPS points -> Uber H3 Res 8 -> 776 hex zones
-
-Layer 4: SCORING
-  Velocity deficit -> CPI scoring -> Risk classification
-
-Layer 5: ML ENGINE
-  XGBoost (severity) + LightGBM (velocity) + Greedy dispatch
-
-Layer 6: OUTPUT
-  Interactive maps + Streamlit dashboard + Economic report
-```
-
-See `system_design.html` for the full visual architecture diagram.
+![GridLock Pipeline Data Flow](gridlock_data_flow.png)
 
 ---
 
+## Quick Start (For Judges)
+
+If you want to run the project locally:
+
+```bash
+git clone https://github.com/aaryan359/flipkart-gridlock.git
+cd flipkart-gridlock
+pip install -r requirements.txt
+streamlit run dashboard.py
+```
+
+Opens at `http://localhost:8501`. The `outputs/` folder is pre-generated — the dashboard works immediately.
+
 ## How to Test
 
-### Option 1: Live Dashboard (Recommended)
+### Option 1: Run Streamlit Dashboard Locally
 
-Run the hosted Streamlit app. No setup required. All outputs are pre-generated.
-
-### Option 2: Local Dashboard
-
+To start the interactive spatial UI using pre-generated datasets:
 ```bash
 pip install -r requirements.txt
 streamlit run dashboard.py
 ```
 
-### Option 3: Re-run Pipeline
+### Option 2: Re-run spatial AI pipeline locally
 
+To run the complete 10-step pipeline from raw records and OSM data:
 ```bash
 pip install pandas numpy geopandas h3 shapely scipy osmnx xgboost lightgbm scikit-learn joblib
 python run_pipeline.py
 ```
+Takes ~125 seconds. Regenerates all data and map files in the `outputs/` directory.
 
-Takes 125 seconds. Regenerates all files in `outputs/`.
+### Option 3: Jupyter / Kaggle Notebook
 
-### Option 4: Kaggle
-
-Upload `GridLock_Full.ipynb` and the CSV dataset. Click "Run All".
+Upload `GridLock_Full.ipynb` and the violation CSV dataset to Jupyter/Kaggle and execute all cells.
 
 ---
 
-## Team
-
-Built for the Flipkart Gridlock Hackathon 2025.
