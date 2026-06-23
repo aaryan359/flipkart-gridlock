@@ -1,7 +1,10 @@
-venv
-cache/
+venv/
 __pycache__/
-.ipynb_checkpoints/
 *.pyc
-.DS_Store
-jan to may police violation_anonymized791b166.csv
+.ipynb_checkpoints/
+.vscode/
+.idea/
+*.egg-info/
+dist/
+build/
+.env
